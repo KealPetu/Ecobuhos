@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btdu1l1hj0kxm"
-path.s3tc="res://.godot/imported/mapa.png-9bd1e402e4dd09df62add8d60c5b27d5.s3tc.ctex"
+path.s3tc="res://.godot/imported/mapa.png-609571fd63229df917b52c841445d218.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Recursos/mapa.png"
-dest_files=["res://.godot/imported/mapa.png-9bd1e402e4dd09df62add8d60c5b27d5.s3tc.ctex"]
+source_file="res://Assets/Textures/mapa.png"
+dest_files=["res://.godot/imported/mapa.png-609571fd63229df917b52c841445d218.s3tc.ctex"]
 
 [params]
 
