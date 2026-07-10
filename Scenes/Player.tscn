@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://cd2bx8vonekqy"]
 
 [ext_resource type="Script" uid="uid://dv4fpwwg5uip7" path="res://Scripts/Player.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://u1aq5sdxhvbt" path="res://Scripts/CameraController.gd" id="2_kyqiw"]
+[ext_resource type="Script" uid="uid://nhk86wmll0lp" path="res://Scripts/Components/InputComponent.gd" id="3_dewec"]
+[ext_resource type="Script" uid="uid://beq8hnktdi2ni" path="res://Scripts/Components/MovementComponent.gd" id="4_5ixxa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_su5g8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_su5g8"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1650471665]
+[node name="Player" type="CharacterBody3D" unique_id=1650471665 node_paths=PackedStringArray("camera_pivot", "input_component", "movement_component")]
 script = ExtResource("1_rpqav")
+camera_pivot = NodePath("CameraPivot")
+input_component = NodePath("InputComponent")
+movement_component = NodePath("MovementComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1694380666]
 shape = SubResource("CapsuleShape3D_su5g8")
@@ -15,5 +21,17 @@ shape = SubResource("CapsuleShape3D_su5g8")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=32702463]
 mesh = SubResource("CapsuleMesh_su5g8")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1975240155]
-transform = Transform3D(1, 0, 0, 0, 0.9713812, 0.23752601, 0, -0.23752601, 0.9713812, 0, 0.5639, 1.2780275)
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1244747811]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_kyqiw")
+
+[node name="SpringArm" type="SpringArm3D" parent="CameraPivot" unique_id=2036728512]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot/SpringArm" unique_id=1651460416]
+
+[node name="InputComponent" type="Node" parent="." unique_id=627169741]
+script = ExtResource("3_dewec")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1832191299]
+script = ExtResource("4_5ixxa")

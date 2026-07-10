@@ -46,7 +46,7 @@ transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.866
 size = Vector3(30, 20, 30)
 
 [node name="Player" parent="Overworld" unique_id=1650471665 instance=ExtResource("2_mbxq7")]
-transform = Transform3D(-0.22410928, 0, 0.974564, 0, 1, 0, -0.974564, 0, -0.22410928, -14.016423, 2.4282494, -40.138344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.880854, 5.442379, -39.47454)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1800525904]
 
@@ -57,3 +57,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
