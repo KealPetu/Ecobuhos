@@ -240,6 +240,88 @@ tracks/10/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Head")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0.011344, 0.999936)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Foot")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0, 0, -0.866025, 0.5)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Calf")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0, 0, 0.258819, 0.965926)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Thigh")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -0.576586, 0.20765, 0.154496, 0.774959)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Thigh")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, -0.576586, 0.154496, 0.20765, 0.774959)
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("EcobuhoMesh/Armature:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.001, 0)]
+}
+tracks/16/type = "rotation_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Calf")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0, 0, -0.258819, 0.965926)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Foot")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, -0.009825, 0.005672, 0.499968, 0.86597)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:l_Forearm")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0, 0, -0.382683, 0.92388)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Forearm")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, 0, 0, -0.382683, 0.92388)
+tracks/20/type = "rotation_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Hand")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/21/type = "rotation_3d"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Hand")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5ixxa"]
 resource_name = "idle"
@@ -323,10 +405,112 @@ tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0.6, 1, 0, 0, 0.011344, 0.999936, 1.2, 1, 0, 0, 0.011344, 0.999936)
 
+[sub_resource type="Animation" id="Animation_52ee3"]
+resource_name = "walk"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Upperarm")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.51328, -0.31819, -0.212608, 0.768178, 0.25, 1, -0.529123, -0.253485, -0.169374, 0.791888, 0.5, 1, -0.55557, 0, 0, 0.83147, 1.0000422, 1, -0.54713, 0.144383, 0.096474, 0.818838)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:l_Forearm")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.25, 1, 0, 0, -0.38268292, 0.92387974, 1.0000422, 1, 0, 0, -0.382683, 0.92388)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Upperarm")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.096474, 0.818838, -0.54713, 0.144383, 0.25, 1, 0.277785, 0.720074, -0.481138, 0.415735, 0.5, 1, 0, 0.83147, -0.55557, 0, 1.0000422, 1, -0.096474, 0.818838, -0.54713, -0.144383)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Forearm")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.25, 1, 0, 0, -0.382683, 0.92388)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Hand")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0.25, 1, 0, 0, 0, 1)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Thigh")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.576586, 0.20765, 0.154496, 0.774959, 0.5, 1, -0.596925, 0, 0, 0.802297, 1, 1, -0.576586, -0.20765, -0.154496, 0.774959)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Calf")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0, 0.258819, 0.965926, 0.5, 1, 0, 0, 0.707107, 0.707107, 1.0000422, 1, 0, 0, 0, 1)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Foot")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0, 0, -0.909961, 0.414693, 0.5, 1, 0, 0, -0.608761, 0.793353, 1.0000422, 1, 0, 0, -0.707107, 0.707107)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Thigh")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.576586, 0.154496, 0.20765, 0.774959, 0.5, 1, -0.596925, 0, 0, 0.802297, 1.0000422, 1, -0.576586, -0.154496, -0.20765, 0.774959)
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("EcobuhoMesh/Armature:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.01, 0), Vector3(0, 0, 0), Vector3(0, 0.01, 0)]
+}
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Calf")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.0000422, 1, 0, 0, -0.258819, 0.965926)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Foot")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.008022, 0.008022, 0.707061, 0.707061, 1.0000422, 1, -0.009825, 0.005672, 0.499968, 0.86597)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Hand")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0.25, 1, 0, 0, 0, 1)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nn08x"]
 _data = {
 &"RESET": SubResource("Animation_nn08x"),
-&"idle": SubResource("Animation_5ixxa")
+&"idle": SubResource("Animation_5ixxa"),
+&"walk": SubResource("Animation_52ee3")
 }
 
 [node name="Player" type="CharacterBody3D" unique_id=1650471665 node_paths=PackedStringArray("camera_pivot", "input_component", "movement_component")]
@@ -338,6 +522,7 @@ movement_component = NodePath("MovementComponent")
 [node name="EcobuhoMesh" type="Node3D" parent="." unique_id=1228837635]
 
 [node name="Armature" type="Node3D" parent="EcobuhoMesh" unique_id=909555843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="EcobuhoMesh/Armature" unique_id=1138132129]
 bones/0/name = "Column"
@@ -443,7 +628,7 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10000001, 0)
 bones/14/enabled = true
 bones/14/position = Vector3(0, 0.10000001, 0)
-bones/14/rotation = Quaternion(0, 0, 0, 1)
+bones/14/rotation = Quaternion(0, 0, -0.38268292, 0.92387974)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "L_Hand"
 bones/15/parent = 14
@@ -471,7 +656,7 @@ bones/18/parent = 17
 bones/18/rest = Transform3D(1, 0, -1.1682431e-06, 0, 1, 0, 1.1682431e-06, 0, 1, -4.1746944e-09, 0.10000001, 3.5754883e-09)
 bones/18/enabled = true
 bones/18/position = Vector3(-4.1746944e-09, 0.10000001, 3.5754883e-09)
-bones/18/rotation = Quaternion(0, -5.8412155e-07, 0, 1)
+bones/18/rotation = Quaternion(0, 0, -0.38268292, 0.92387974)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "R_Hand"
 bones/19/parent = 18
@@ -492,21 +677,21 @@ bones/21/parent = 20
 bones/21/rest = Transform3D(1, 0, 0, 0, 0.287348, 0.95782626, 0, -0.9578262, 0.28734803, 0, 0.10440306, -1.1175871e-08)
 bones/21/enabled = true
 bones/21/position = Vector3(0, 0.10440306, -1.1175871e-08)
-bones/21/rotation = Quaternion(-0.59693044, 0, 0, 0.802293)
+bones/21/rotation = Quaternion(-0.5765859, 0.20764996, 0.15449598, 0.77495885)
 bones/21/scale = Vector3(1, 0.99999994, 1)
 bones/22/name = "L_Calf"
 bones/22/parent = 21
 bones/22/rest = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 1.4901161e-08, 0.06999998, 7.450581e-09)
 bones/22/enabled = true
 bones/22/position = Vector3(1.4901161e-08, 0.06999998, 7.450581e-09)
-bones/22/rotation = Quaternion(1.7763568e-15, 0, 0, 1)
+bones/22/rotation = Quaternion(0, 0, 0.25881898, 0.9659259)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "L_Foot"
 bones/23/parent = 22
 bones/23/rest = Transform3D(0, 1, -1.3322676e-15, -1, 0, 1.3909075e-08, 1.3909075e-08, 1.3322676e-15, 1, 1.4901161e-08, 0.08, 7.450581e-09)
 bones/23/enabled = true
 bones/23/position = Vector3(1.4901161e-08, 0.08, 7.450581e-09)
-bones/23/rotation = Quaternion(-4.9175997e-09, -4.917601e-09, -0.70710677, 0.70710677)
+bones/23/rotation = Quaternion(0, 1.1102236e-16, -0.8660253, 0.5000002)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "R_Hip"
 bones/24/parent = -1
@@ -520,21 +705,21 @@ bones/25/parent = 24
 bones/25/rest = Transform3D(1, -3.72991e-07, -2.7751722e-07, 3.7299128e-07, 0.28734726, 0.9578265, -2.775168e-07, -0.95782655, 0.28734723, 9.245493e-11, 0.10440308, -1.23682895e-08)
 bones/25/enabled = true
 bones/25/position = Vector3(9.245493e-11, 0.10440308, -1.23682895e-08)
-bones/25/rotation = Quaternion(-0.5969308, -1.5055883e-13, 2.3245326e-07, 0.80229276)
+bones/25/rotation = Quaternion(-0.5765859, 0.15449595, 0.20764995, 0.77495885)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "R_Calf"
 bones/26/parent = 25
 bones/26/rest = Transform3D(1, 1.3552527e-20, -1.4210855e-14, -1.3552527e-20, 1, 2.842155e-14, 1.4210855e-14, -2.842155e-14, 1, -5.7620504e-09, 0.07000007, 6.2581265e-09)
 bones/26/enabled = true
 bones/26/position = Vector3(-5.7620504e-09, 0.07000007, 6.2581265e-09)
-bones/26/rotation = Quaternion(-1.4210775e-14, -7.1054274e-15, -6.7762636e-21, 1)
+bones/26/rotation = Quaternion(2.1175821e-22, -4.2351642e-22, -0.25881898, 0.9659259)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "R_Foot"
 bones/27/parent = 26
 bones/27/rest = Transform3D(-1.1920928e-07, -1, 3.8641616e-07, 0.99972975, -1.1019348e-07, 0.023248438, -0.023248438, 3.890831e-07, 0.99972975, -5.7620504e-09, 0.08000007, 6.2581265e-09)
 bones/27/enabled = true
 bones/27/position = Vector3(-5.7620504e-09, 0.08000007, 6.2581265e-09)
-bones/27/rotation = Quaternion(-0.008219982, 0.008220256, 0.707059, 0.70705897)
+bones/27/rotation = Quaternion(-0.009824997, 0.0056719985, 0.49996784, 0.8659697)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/name = "Tail"
 bones/28/parent = -1
