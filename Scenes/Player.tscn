@@ -489,6 +489,88 @@ tracks/20/interp = 2
 tracks/20/loop_wrap = true
 tracks/20/keys = PackedFloat32Array(0, 1, -0.258819, 0, 0, 0.965926, 2, 1, -0.258819, 0, 0, 0.965926)
 
+[sub_resource type="Animation" id="Animation_megsn"]
+resource_name = "on_air"
+length = 0.6667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Upperarm")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.258819, 0, 0, 0.965926, 0.2, 1, 0.21644, 0, 0, 0.976296)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:l_Forearm")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.382683, 0, 0.92388, 0.2, 1, 0, -0.38268292, 0, 0.92387974)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Upperarm")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.965926, 0.258819, 0, 0.2, 1, 0, 0.976296, 0.21644, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Forearm")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.382683, 0, 0.92388, 0.2, 1, 0, 0.38268292, 0, 0.92387974)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Head")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, -0.130526, 0.991445, 0.3333, 1, 0, 0, -0.087156, 0.996195)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:R_Thigh")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.591819, 0.104721, 0.077914, 0.795433, 0.2, 1, -0.594654, 0.069925, 0.052025, 0.799244)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:L_Thigh")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.591819, 0.104721, 0.077914, 0.795433, 0.2, 1, -0.594654, 0.069925, 0.052025, 0.799244)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Tail_ext1")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.130526, 0, 0, 0.991445, 0.1667, 1, 0.087156, 0, 0, 0.996195)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Tail_ext2")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0.1667, 1, 0.19509, 0, 0, 0.980785, 0.3333, 1, 0.065403, 0, 0, 0.997859)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Tail_ext3")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0.3333, 1, 0.290702, 0, 0, 0.956814, 0.5, 1, 0.098451, 0, 0, 0.995142)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("EcobuhoMesh/Armature/Skeleton3D:Tail_ext4")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.098451, 0, 0, 0.995142, 0.5, 1, 0.290702, 0, 0, 0.956814)
+
 [sub_resource type="Animation" id="Animation_bhhdu"]
 resource_name = "running"
 length = 0.6667
@@ -723,6 +805,7 @@ tracks/14/keys = PackedFloat32Array(0.3, 1, -0.224101, 0, 0, 0.974566, 0.8, 1, 0
 _data = {
 &"RESET": SubResource("Animation_nn08x"),
 &"idle": SubResource("Animation_5ixxa"),
+&"on_air": SubResource("Animation_megsn"),
 &"running": SubResource("Animation_bhhdu"),
 &"walk": SubResource("Animation_52ee3")
 }
