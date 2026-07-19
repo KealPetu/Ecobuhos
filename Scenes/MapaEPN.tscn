@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjib1xl0uuoxg"]
 
-[ext_resource type="Texture2D" uid="uid://btdu1l1hj0kxm" path="res://Assets/Textures/mapa.png" id="1_0copl"]
-[ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Player.tscn" id="2_mbxq7"]
+[ext_resource type="PackedScene" uid="uid://c562cka6ffreb" path="res://Scenes/Levels/TestLevel.tscn" id="1_mbxq7"]
+[ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="2_mbxq7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p34ba"]
 
@@ -12,15 +12,6 @@ sky_material = SubResource("ProceduralSkyMaterial_p34ba")
 background_mode = 2
 sky = SubResource("Sky_yv1te")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ixxa"]
-albedo_texture = ExtResource("1_0copl")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_5h11f"]
-material = SubResource("StandardMaterial3D_5ixxa")
-size = Vector2(150, 150)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mbxq7"]
-
 [node name="Game" type="Node" unique_id=152015231]
 
 [node name="Overworld" type="Node3D" parent="." unique_id=1833062605]
@@ -28,25 +19,10 @@ size = Vector2(150, 150)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Overworld" unique_id=435279236]
 environment = SubResource("Environment_su5g8")
 
-[node name="Level" type="Node3D" parent="Overworld" unique_id=1653304269]
-
-[node name="MapaEPN" type="MeshInstance3D" parent="Overworld/Level" unique_id=1180065805]
-mesh = SubResource("PlaneMesh_5h11f")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Overworld/Level/MapaEPN" unique_id=27550016]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Overworld/Level/MapaEPN/StaticBody3D" unique_id=1152336939]
-shape = SubResource("WorldBoundaryShape3D_mbxq7")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Overworld/Level" unique_id=757823930]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Overworld/Level/CSGCombiner3D" unique_id=2029065728]
-transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, -18.045874, 5.0000005, 1.0884409)
-size = Vector3(15, 10, 15)
-
 [node name="Player" parent="Overworld" unique_id=1650471665 instance=ExtResource("2_mbxq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.880854, 0.016647339, -6.036254)
+transform = Transform3D(0.5613097, 0, -0.82760584, 0, 1, 0, 0.82760584, 0, 0.5613097, -29.880854, 0.016647339, -6.036254)
+
+[node name="TestLevel" parent="Overworld" unique_id=899220094 instance=ExtResource("1_mbxq7")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1800525904]
 
