@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c562cka6ffreb" path="res://Scenes/Levels/TestLevel.tscn" id="1_mbxq7"]
 [ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="2_mbxq7"]
+[ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="3_hud"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p34ba"]
+sky_top_color = Color(0.384, 0.655, 0.859, 1)
+sky_horizon_color = Color(0.647, 0.788, 0.894, 1)
+ground_bottom_color = Color(0.2, 0.2, 0.2, 1)
+ground_horizon_color = Color(0.647, 0.788, 0.894, 1)
 
 [sub_resource type="Sky" id="Sky_yv1te"]
 sky_material = SubResource("ProceduralSkyMaterial_p34ba")
@@ -11,6 +16,10 @@ sky_material = SubResource("ProceduralSkyMaterial_p34ba")
 [sub_resource type="Environment" id="Environment_su5g8"]
 background_mode = 2
 sky = SubResource("Sky_yv1te")
+ambient_light_source = 2
+ambient_light_color = Color(0.7, 0.8, 0.9, 1)
+ambient_light_energy = 0.8
+tonemap_mode = 2
 
 [node name="Game" type="Node" unique_id=152015231]
 
@@ -19,18 +28,15 @@ sky = SubResource("Sky_yv1te")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Overworld" unique_id=435279236]
 environment = SubResource("Environment_su5g8")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Overworld"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 20, 0)
+light_color = Color(1, 0.96, 0.9, 1)
+light_energy = 1.2
+shadow_enabled = true
+
 [node name="Player" parent="Overworld" unique_id=1650471665 instance=ExtResource("2_mbxq7")]
-transform = Transform3D(0.5613097, 0, -0.82760584, 0, 1, 0, 0.82760584, 0, 0.5613097, -29.880854, 0.016647339, -6.036254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0, 0.05, -5.0)
 
 [node name="TestLevel" parent="Overworld" unique_id=899220094 instance=ExtResource("1_mbxq7")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1800525904]
-
-[node name="Control" type="Control" parent="UI" unique_id=626764482]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="HUD" parent="." instance=ExtResource("3_hud")]

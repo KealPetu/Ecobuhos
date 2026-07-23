@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bqxn2biqabudc" path="res://Scenes/Characters/NPCs/MapacheInvasor.tscn" id="1_7e5cw"]
 [ext_resource type="PackedScene" uid="uid://cg151wl0mqnbf" path="res://Scenes/Characters/NPCs/Max.tscn" id="2_iuug4"]
 [ext_resource type="Texture2D" uid="uid://btdu1l1hj0kxm" path="res://Assets/Textures/mapa.png" id="3_o0omn"]
+[ext_resource type="PackedScene" uid="uid://btff3cfeiut2w" path="res://Scenes/Prefabs/RecyclingBin.tscn" id="4_bin"]
+[ext_resource type="PackedScene" uid="uid://bwaste001item" path="res://Scenes/Prefabs/WasteItem.tscn" id="5_waste"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ixxa"]
 albedo_texture = ExtResource("3_o0omn")
@@ -21,10 +23,10 @@ roughness = 0.0
 [node name="Level" type="Node3D" unique_id=899220094]
 
 [node name="MapacheInvasor" parent="." unique_id=271127357 instance=ExtResource("1_7e5cw")]
-transform = Transform3D(-0.3776219, 0, 0.9259599, 0, 1, 0, -0.9259599, 0, -0.3776219, -24.384, 0.5, -4.628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 3, -8)
 
 [node name="Max" parent="." unique_id=2061912373 instance=ExtResource("2_iuug4")]
-transform = Transform3D(-0.46174866, 0, 0.8870108, 0, 1, 0, -0.8870108, 0, -0.46174866, -20.7, 0.5, -7.215)
+transform = Transform3D(-0.46174866, 0, 0.8870108, 0, 1, 0, -0.8870108, 0, -0.46174866, -29, 0.5, -6.5)
 
 [node name="MapaEPN" type="MeshInstance3D" parent="." unique_id=1245856096]
 mesh = SubResource("PlaneMesh_5h11f")
@@ -34,6 +36,14 @@ mesh = SubResource("PlaneMesh_5h11f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapaEPN/StaticBody3D" unique_id=230521109]
 shape = SubResource("WorldBoundaryShape3D_mbxq7")
 
+[node name="MapaEPN2" type="MeshInstance3D" parent="." unique_id=128204471]
+mesh = SubResource("PlaneMesh_5h11f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MapaEPN2" unique_id=1061368697]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapaEPN2/StaticBody3D" unique_id=1667635320]
+shape = SubResource("WorldBoundaryShape3D_mbxq7")
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1369271712]
 use_collision = true
 
@@ -41,3 +51,67 @@ use_collision = true
 transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, -18.045874, 5.0000005, 1.0884409)
 size = Vector3(15, 10, 15)
 material = SubResource("StandardMaterial3D_mbxq7")
+
+[node name="Bins" type="Node3D" parent="." unique_id=609790535]
+
+[node name="Bin_Organico" parent="Bins" unique_id=759747557 instance=ExtResource("4_bin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 0, -10.5)
+bin_color = Color(0.153, 0.682, 0.376, 1)
+
+[node name="Bin_Plastico" parent="Bins" unique_id=1539812840 instance=ExtResource("4_bin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 0, -10.5)
+accepts_type = "plastic"
+bin_color = Color(0.161, 0.502, 0.725, 1)
+
+[node name="Bin_Vidrio" parent="Bins" unique_id=1676886889 instance=ExtResource("4_bin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0, -10.5)
+accepts_type = "glass"
+bin_color = Color(0.2, 0.8, 0.9, 1)
+
+[node name="Bin_Metal" parent="Bins" unique_id=2036266779 instance=ExtResource("4_bin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 0, -10.5)
+accepts_type = "metal"
+bin_color = Color(0.953, 0.612, 0.071, 1)
+
+[node name="WasteItems" type="Node3D" parent="." unique_id=1500944533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2017345, 0, 0)
+
+[node name="Waste_Cascara" parent="WasteItems" unique_id=1990600575 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Botella" parent="WasteItems" unique_id=569237438 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 0.3, -4.5)
+label_text = "Botella Plástica"
+
+[node name="Waste_Vidrio" parent="WasteItems" unique_id=1482725295 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0.3, -4.5)
+label_text = "Frasco Vidrio"
+
+[node name="Waste_Lata" parent="WasteItems" unique_id=846034097 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0.3, -4.5)
+label_text = "Lata Aluminio"
+
+[node name="Waste_Bateria" parent="WasteItems" unique_id=1694684794 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0.3, -4.5)
+label_text = "Batería Usada"
+
+[node name="Waste_Papel" parent="WasteItems" unique_id=587145122 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 0.3, -4.5)
+label_text = "Periódico"
+
+[node name="Waste_Cascara2" parent="WasteItems" unique_id=583767682 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara3" parent="WasteItems" unique_id=2031034018 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara4" parent="WasteItems" unique_id=186311921 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara5" parent="WasteItems" unique_id=1952413768 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"

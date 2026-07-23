@@ -1,18 +1,67 @@
 extends CharacterBody3D
 
-## Orchestrator: owns no movement or input logic itself.
-## Reads intent from InputComponent, hands it to MovementComponent,
-## and decides *when* things happen each physics frame.
+## Orchestrator: owns movement, input logic, inventory, interaction, and stun effects.
 
 @export var camera_pivot: Node3D
 
 @export_category("Player Components")
 @export var input_component: InputComponent
 @export var movement_component: MovementComponent
+@export var inventory_component: InventoryComponent
+@export var interaction_component: InteractionComponent
 
+var is_stunned: bool = false
+var _stun_timer: float = 0.0
+
+var _stun_label: Label3D
+
+func _ready() -> void:
+	add_to_group("player")
+	if GameManager:
+		GameManager.player_stunned.connect(_on_player_stunned)
+		
+	# Crear indicador visual de stun sobre la cabeza del buho
+	_stun_label = Label3D.new()
+	_stun_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	_stun_label.text = "⚡ ¡CONGELADO! 💫"
+	_stun_label.font_size = 40
+	_stun_label.outline_size = 10
+	_stun_label.outline_modulate = Color(0, 0, 0)
+	_stun_label.modulate = Color(1.0, 0.85, 0.1)
+	_stun_label.position = Vector3(0, 2.2, 0)
+	_stun_label.visible = false
+	add_child(_stun_label)
+
+func _process(delta: float) -> void:
+	if is_stunned:
+		_stun_timer -= delta
+		if _stun_label:
+			_stun_label.visible = true
+			# Animacion flotante y oscilante sobre la cabeza
+			var ticks: float = float(Time.get_ticks_msec()) * 0.01
+			_stun_label.position.y = 2.2 + sin(ticks) * 0.12
+			_stun_label.rotation.z = sin(ticks * 0.8) * 0.15
+		if _stun_timer <= 0:
+			is_stunned = false
+			if _stun_label:
+				_stun_label.visible = false
+
+func _on_player_stunned(duration: float, _reason: String) -> void:
+	is_stunned = true
+	_stun_timer = duration
+	velocity = Vector3.ZERO
+	if _stun_label:
+		_stun_label.visible = true
 
 func _physics_process(delta: float) -> void:
 	movement_component.apply_gravity(self, delta)
+
+	# Si el jugador esta congelado por contaminacion cruzada, no puede moverse
+	if is_stunned:
+		velocity.x = 0
+		velocity.z = 0
+		move_and_slide()
+		return
 
 	if input_component.is_jump_pressed() and is_on_floor():
 		movement_component.apply_jump(self)
@@ -24,5 +73,4 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 
 	movement_component.apply_horizontal_movement(self, direction, delta)
-
 	move_and_slide()
