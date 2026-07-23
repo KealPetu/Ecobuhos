@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://2lnsmox4drjs"]
 
 [ext_resource type="PackedScene" uid="uid://boc837lvdkt7t" path="res://Assets/Models/labtable1.glb" id="1_mduif"]
-[ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Player.tscn" id="1_scap4"]
+[ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="1_scap4"]
 [ext_resource type="Texture2D" uid="uid://c5qknlghiug5g" path="res://Assets/Textures/texture-floor-tiles.jpg" id="2_blu3v"]
 [ext_resource type="PackedScene" uid="uid://dnf0j3klnnojo" path="res://Assets/Models/whiteboard_low_poly.glb" id="2_jjnej"]
 [ext_resource type="PackedScene" uid="uid://c7wi4njundy84" path="res://Assets/Models/chair.glb" id="3_scap4"]
