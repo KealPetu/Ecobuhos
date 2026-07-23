@@ -36,6 +36,14 @@ mesh = SubResource("PlaneMesh_5h11f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapaEPN/StaticBody3D" unique_id=230521109]
 shape = SubResource("WorldBoundaryShape3D_mbxq7")
 
+[node name="MapaEPN2" type="MeshInstance3D" parent="." unique_id=128204471]
+mesh = SubResource("PlaneMesh_5h11f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MapaEPN2" unique_id=1061368697]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapaEPN2/StaticBody3D" unique_id=1667635320]
+shape = SubResource("WorldBoundaryShape3D_mbxq7")
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1369271712]
 use_collision = true
 
@@ -74,27 +82,22 @@ label_text = "Cáscara Guineo"
 
 [node name="Waste_Botella" parent="WasteItems" unique_id=569237438 instance=ExtResource("5_waste")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 0.3, -4.5)
-waste_type = "plastic"
 label_text = "Botella Plástica"
 
 [node name="Waste_Vidrio" parent="WasteItems" unique_id=1482725295 instance=ExtResource("5_waste")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0.3, -4.5)
-waste_type = "glass"
 label_text = "Frasco Vidrio"
 
 [node name="Waste_Lata" parent="WasteItems" unique_id=846034097 instance=ExtResource("5_waste")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0.3, -4.5)
-waste_type = "metal"
 label_text = "Lata Aluminio"
 
 [node name="Waste_Bateria" parent="WasteItems" unique_id=1694684794 instance=ExtResource("5_waste")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0.3, -4.5)
-waste_type = "electronic"
 label_text = "Batería Usada"
 
 [node name="Waste_Papel" parent="WasteItems" unique_id=587145122 instance=ExtResource("5_waste")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 0.3, -4.5)
-waste_type = "paper"
 label_text = "Periódico"
 
 [node name="Waste_Cascara2" parent="WasteItems" unique_id=583767682 instance=ExtResource("5_waste")]

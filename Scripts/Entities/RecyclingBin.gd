@@ -33,7 +33,7 @@ func _ready() -> void:
 func try_deposit(inventory: InventoryComponent) -> bool:
 	if inventory.get_count() > 0:
 		var item: String = inventory.peek_first()
-		var correct: bool = GameManager.deposit_waste(item, accepts_type)
+		var correct: bool = GameManager.deposit_waste(item, accepts_type, global_position)
 		inventory.remove_item(item)
 		waste_received.emit(item, correct)
 		return true

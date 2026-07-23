@@ -48,10 +48,11 @@ func _ready() -> void:
 		GameManager.level_failed.connect(_on_level_failed)
 		GameManager.level_completed.connect(_on_level_completed)
 		GameManager.mapache_activated.connect(_on_mapache_activated)
+		GameManager.level_target_changed.connect(_on_level_target_changed)
 		var current_scene: Node = get_tree().current_scene
 		if current_scene:
 			GameManager.set_current_level_from_scene_path(current_scene.scene_file_path)
-		GameManager.start_level(5, 90.0)
+		GameManager.start_level(GameManager.get_current_level_waste_target(5), 90.0)
 		_update_objective()
 
 	if msg_label:
@@ -129,13 +130,17 @@ func _on_waste_deposited(waste_type: String, bin_type: String, correct: bool) ->
 
 func _update_objective() -> void:
 	if objective_label and GameManager:
-		objective_label.text = "🎯 META: " + str(GameManager.correct_deposits) + "/" + str(GameManager.level_target)
+		objective_label.text = "🎯 ASIGNADOS: " + str(GameManager.total_deposits) + "/" + str(GameManager.level_target)
+
+
+func _on_level_target_changed(_new_target: int) -> void:
+	_update_objective()
 
 func _on_level_completed(final_score: int, accuracy: float, time_bonus: int, stars: int, badge: String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if victory_modal:
 		if victory_details:
-			victory_details.text = "¡Excelente trabajo Guardián EPN!\n\n• Meta: " + str(GameManager.correct_deposits) + "/" + str(GameManager.level_target) + " Residuos Reciclados\n• Puntaje Final: " + str(final_score) + " pts\n• Precisión: " + str(int(accuracy)) + "%\n• Bonus de Tiempo: +" + str(time_bonus) + " pts\n• Insignia: " + badge + "\n\nHas purificado con éxito la zona."
+			victory_details.text = "¡Excelente trabajo Guardián EPN!\n\n• Asignados: " + str(GameManager.total_deposits) + "/" + str(GameManager.level_target) + " Residuos\n• Puntaje Final: " + str(final_score) + " pts\n• Precisión: " + str(int(accuracy)) + "%\n• Bonus de Tiempo: +" + str(time_bonus) + " pts\n• Insignia: " + badge + "\n\nHas purificado con éxito la zona."
 		victory_modal.show()
 
 func _on_level_failed(final_score: int, tip: String) -> void:
@@ -144,7 +149,7 @@ func _on_level_failed(final_score: int, tip: String) -> void:
 		if defeat_tip:
 			defeat_tip.text = "No lograste reciclar " + str(GameManager.level_target) + " residuos a tiempo.\n\nPuntaje alcanzado: " + str(final_score) + " pts\n\n💡 RETROALIMENTACIÓN PEDAGÓGICA:\n" + tip
 		defeat_modal.show()
-func _on_mapache_activated() -> void:
+func _on_mapache_activated(_spawn_position: Vector3 = Vector3.ZERO) -> void:
 	show_message("🦝 ¡ALERTA! EL DESORDENADOR (MAPACHE INVASOR) HA ATACADO Y ESTÁ TIRANDO BASURA 🦝", Color(1.0, 0.2, 0.2), 6.0)
 
 

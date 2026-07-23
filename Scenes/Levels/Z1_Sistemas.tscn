@@ -408,6 +408,10 @@ omni_range = 15.0
 [node name="RecyclingBin" parent="." unique_id=224434325 instance=ExtResource("11_sd453")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2636244, -0.016870499, -9.419766)
 
+[node name="RecyclingBin" parent="RecyclingBin" unique_id=377643234 instance=ExtResource("11_sd453")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9572983, -0.016870499, 1.6077709)
+accepts_type = "plastic"
+
 [node name="WasteItem" parent="." unique_id=583767682 instance=ExtResource("12_nxkxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5773249, 0.28312975, -8.081372)
 

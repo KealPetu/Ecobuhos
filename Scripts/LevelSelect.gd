@@ -27,7 +27,7 @@ const LEVELS: Array = [
 		"id":        "quimica",
 		"full_name": "Facultad de Quimica",
 		"desc":      "Descubre los secretos de la quimica y el cuidado del medio ambiente.",
-		"scene":     "res://Scenes/levels/Z2_Quimica.tscn",
+		"scene":     "res://Scenes/levels/Z4_Agroindustria.tscn",
 		"locked":    true,
 		"number":    3,
 	},

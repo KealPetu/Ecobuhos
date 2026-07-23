@@ -22,14 +22,14 @@ func start_mission(waste_target: int, time_limit: float) -> void:
 	var current_scene: Node = get_tree().current_scene
 	if current_scene:
 		GameManager.set_current_level_from_scene_path(current_scene.scene_file_path)
-	GameManager.start_level(waste_target, time_limit)
+	GameManager.start_level(GameManager.get_current_level_waste_target(waste_target), time_limit)
 
 func _on_waste_deposited(waste_type: String, correct: bool) -> void:
 	_deposits_this_mission += 1
 	if correct:
 		_correct_deposits += 1
 		
-	if _deposits_this_mission >= target_waste_count:
+	if _deposits_this_mission >= GameManager.level_target:
 		var time_bonus: float = GameManager.time_remaining * 10.0
 		mission_complete.emit(GameManager.score, time_bonus)
 		GameManager.end_game()

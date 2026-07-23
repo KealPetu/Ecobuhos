@@ -8,10 +8,11 @@ signal xp_changed(total_xp: int)
 signal time_up()
 signal waste_deposited(waste_type: String, bin_type: String, correct: bool)
 signal player_stunned(duration: float, reason: String)
-signal mapache_activated()
+signal mapache_activated(spawn_position: Vector3)
 signal level_completed(final_score: int, accuracy: float, time_bonus: int, stars: int, badge: String)
 signal level_failed(final_score: int, tip: String)
 signal game_over(final_score: int)
+signal level_target_changed(new_target: int)
 
 var score: int = 0
 var combo_count: int = 0
@@ -47,6 +48,13 @@ func _ready() -> void:
 	current_level_index = clampi(current_level_index, 0, 4)
 	highest_unlocked_level = clampi(highest_unlocked_level, 0, 4)
 
+
+func get_current_level_waste_target(default_target: int = 5) -> int:
+	var waste_items: Array = get_tree().get_nodes_in_group("waste_items")
+	if waste_items.size() > 0:
+		return waste_items.size()
+	return default_target
+
 func start_level(target_waste_count: int = 5, time_limit: float = 90.0) -> void:
 	level_target = target_waste_count
 	initial_time_limit = time_limit
@@ -61,6 +69,7 @@ func start_level(target_waste_count: int = 5, time_limit: float = 90.0) -> void:
 	score_changed.emit(score)
 	combo_changed.emit(combo_multiplier)
 	xp_changed.emit(player_xp)
+	level_target_changed.emit(level_target)
 
 func set_current_level(level_index: int) -> void:
 	current_level_index = clampi(level_index, 0, 4)
@@ -97,7 +106,13 @@ func reset_level_progress() -> void:
 	current_level_index = 0
 	save_profile()
 
-func deposit_waste(waste_type: String, bin_type: String) -> bool:
+func add_level_waste(amount: int = 1) -> void:
+	if amount <= 0:
+		return
+	level_target += amount
+	level_target_changed.emit(level_target)
+
+func deposit_waste(waste_type: String, bin_type: String, bin_position: Vector3 = Vector3.ZERO) -> bool:
 	if not is_playing:
 		return false
 		
@@ -124,15 +139,15 @@ func deposit_waste(waste_type: String, bin_type: String) -> bool:
 		
 		# Refuerzo Negativo 2: Si comete 2 o mas errores, se activa el Desordenador (Mapache)
 		if error_count >= 2:
-			_spawn_mapache_if_needed()
-			mapache_activated.emit()
+			_spawn_mapache_if_needed(bin_position)
+			mapache_activated.emit(bin_position)
 	
 	score_changed.emit(score)
 	combo_changed.emit(combo_multiplier)
 	waste_deposited.emit(waste_type, bin_type, correct)
 
 	# Verificacion de Victoria (Objetivo cumplido)
-	if correct_deposits >= level_target:
+	if total_deposits >= level_target:
 		_trigger_victory()
 
 	return correct
@@ -264,7 +279,7 @@ func save_leaderboard_entry(p_name: String, p_score: int, p_stars: int, p_badge:
 		file.store_string(JSON.stringify(list))
 		file.close()
 
-func _spawn_mapache_if_needed() -> void:
+func _spawn_mapache_if_needed(spawn_position: Vector3 = Vector3.ZERO) -> void:
 	var existing = get_tree().get_nodes_in_group("mapache")
 	if existing.size() > 0:
 		return
@@ -272,3 +287,5 @@ func _spawn_mapache_if_needed() -> void:
 	if mapache_prefab and get_tree().current_scene:
 		var mapache = mapache_prefab.instantiate()
 		get_tree().current_scene.add_child(mapache)
+		if mapache and spawn_position != Vector3.ZERO:
+			mapache.global_position = spawn_position + Vector3(0, 2.0, 0)
