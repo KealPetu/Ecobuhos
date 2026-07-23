@@ -2,13 +2,18 @@ extends CharacterBody3D
 
 ## Orchestrator: owns movement, input logic, inventory, interaction, and stun effects.
 
-@export var camera_pivot: Node3D
+@onready var camera_pivot: Node3D = $CameraPivot
+## Nodo visual que se rota hacia la dirección de movimiento (NO el CharacterBody3D,
+## para no arrastrar la cámara con él). Normalmente el nodo "Armature".
+@onready var character_model: Node3D = $Armature/Skeleton3D/Ecobuho
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export_category("Player Components")
 @export var input_component: InputComponent
 @export var movement_component: MovementComponent
 @export var inventory_component: InventoryComponent
 @export var interaction_component: InteractionComponent
+
 
 var is_stunned: bool = false
 var _stun_timer: float = 0.0
@@ -71,6 +76,29 @@ func _physics_process(delta: float) -> void:
 	var direction := (basis * Vector3(input_dir.x, 0, input_dir.y))
 	direction.y = 0
 	direction = direction.normalized()
-
-	movement_component.apply_horizontal_movement(self, direction, delta)
+	
+	var is_moving := direction.length() > 0.01
+	var is_sprinting := is_moving and input_component.is_sprint_pressed()
+ 
+	movement_component.apply_horizontal_movement(self, direction, is_sprinting)
+ 
+	if character_model:
+		movement_component.rotate_towards(character_model, direction, delta)
+ 
+	_update_animation(is_moving, is_sprinting)
+	
 	move_and_slide()
+
+
+func _update_animation(is_moving: bool, is_sprinting: bool) -> void:
+	if not animation_player:
+		return
+		
+	var anim_to_play := "idle"
+	if not is_on_floor():
+		anim_to_play = "on_air"
+	elif is_moving:
+		anim_to_play = "running" if is_sprinting else "walk"
+ 
+	if animation_player.current_animation != anim_to_play:
+		animation_player.play(anim_to_play)
