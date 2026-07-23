@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbin001recycling"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/RecyclingBin.gd" id="1_bin_script"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bin"]
+height = 1.2
+radius = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 2.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bin"]
+albedo_color = Color(0.153, 0.682, 0.376, 1.0)
+roughness = 0.4
+
+[node name="RecyclingBin" type="StaticBody3D"]
+script = ExtResource("1_bin_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("CylinderShape3D_bin")
+
+[node name="MeshInstance3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.5
+height = 1.2
+sides = 16
+material = SubResource("StandardMaterial3D_bin")
+
+[node name="Lid" type="CSGCylinder3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.55
+height = 0.1
+sides = 16
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+billboard = 1
+double_sided = false
+text = "ORGANICO"
+font_size = 36
+outline_size = 8
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SphereShape3D_area")

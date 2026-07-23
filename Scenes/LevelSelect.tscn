@@ -1,0 +1,621 @@
+[gd_scene format=3 uid="uid://dys6kwfxj74iu"]
+
+[ext_resource type="Script" uid="uid://dbygin2wcaxsq" path="res://Scripts/LevelSelect.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://hqhg3boxavwk" path="res://Assets/Textures/owl_mascot_cropped.png" id="2_owl"]
+[ext_resource type="Texture2D" uid="uid://w61m5mbbb8xc" path="res://Assets/Textures/campus_map.png" id="3_map"]
+
+[sub_resource type="StyleBoxFlat" id="GlowStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 56
+corner_radius_top_right = 56
+corner_radius_bottom_right = 56
+corner_radius_bottom_left = 56
+
+[sub_resource type="StyleBoxFlat" id="Pin_mecanica"]
+bg_color = Color(0.902, 0.494, 0.133, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[sub_resource type="StyleBoxFlat" id="Pin_sistemas"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_quimica"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_comedor"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_agroindustria"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="TitleBarStyle"]
+bg_color = Color(0, 0.2, 0.4, 1)
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+
+[sub_resource type="StyleBoxFlat" id="BtnNormal"]
+bg_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnPressed"]
+bg_color = Color(0.55, 0.45, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnHover"]
+bg_color = Color(0.87, 0.75, 0.42, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="InfoPanelStyle"]
+bg_color = Color(0.039, 0.059, 0.176, 0.95)
+border_width_top = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="BtnDisabled"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="LevelSelect" type="Node2D" unique_id=106473293]
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1935918219]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_map")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Paths" type="Node2D" parent="." unique_id=1027234801]
+
+[node name="LevelNodes" type="Node2D" parent="." unique_id=296671122]
+
+[node name="LevelNode_mecanica" type="Control" parent="LevelNodes" unique_id=636291134]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 152.0
+offset_top = 632.0
+offset_right = 248.0
+offset_bottom = 728.0
+pivot_offset = Vector2(48, 48)
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=543096518]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=524158650]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_mecanica")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_mecanica/PinCircle" unique_id=1643244573]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "⚙"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1030641716]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1147100287]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Mecanica"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_mecanica" unique_id=955886659]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+[node name="LevelNode_sistemas" type="Control" parent="LevelNodes" unique_id=451771925]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 297.0
+offset_top = 492.0
+offset_right = 393.0
+offset_bottom = 588.0
+pivot_offset = Vector2(48, 48)
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=2042443686]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=95447173]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_sistemas")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_sistemas/PinCircle" unique_id=1433329271]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "💻"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=1505095877]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=600421971]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Sistemas"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_sistemas" unique_id=2051944947]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+[node name="LevelNode_quimica" type="Control" parent="LevelNodes" unique_id=399731494]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 592.0
+offset_top = 487.0
+offset_right = 688.0
+offset_bottom = 583.0
+pivot_offset = Vector2(48, 48)
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=785723755]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=119552162]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_quimica")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_quimica/PinCircle" unique_id=922726218]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🧪"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=287020261]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=745100636]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Quimica"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_quimica" unique_id=599294814]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+[node name="LevelNode_comedor" type="Control" parent="LevelNodes" unique_id=1351296228]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 542.0
+offset_top = 627.0
+offset_right = 638.0
+offset_bottom = 723.0
+pivot_offset = Vector2(48, 48)
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1175396963]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1916073128]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_comedor")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_comedor/PinCircle" unique_id=1904542985]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🍽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=1083481775]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=322403864]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "Comedor EPN"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_comedor" unique_id=1156076941]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+[node name="LevelNode_agroindustria" type="Control" parent="LevelNodes" unique_id=744117583]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 752.0
+offset_top = 272.0
+offset_right = 848.0
+offset_bottom = 368.0
+pivot_offset = Vector2(48, 48)
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=2107117404]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=946623239]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_agroindustria")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria/PinCircle" unique_id=337615642]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🌾"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=458909754]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=944327505]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Agroindustria"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_agroindustria" unique_id=1334227105]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+[node name="PlayerMarker" type="Node2D" parent="." unique_id=919458608]
+position = Vector2(200, 680)
+
+[node name="Shadow" type="Polygon2D" parent="PlayerMarker" unique_id=561196644]
+color = Color(0, 0, 0, 0.38)
+polygon = PackedVector2Array(18, 0, 17.119, 1.545, 14.562, 2.939, 10.58, 4.045, 5.562, 4.755, 0, 5, -5.562, 4.755, -10.58, 4.045, -14.562, 2.939, -17.119, 1.545, -18, 0, -17.119, -1.545, -14.562, -2.939, -10.58, -4.045, -5.562, -4.755, 0, -5, 5.562, -4.755, 10.58, -4.045, 14.562, -2.939, 17.119, -1.545)
+
+[node name="OwlSprite" type="Sprite2D" parent="PlayerMarker" unique_id=1388314796]
+position = Vector2(0, -38)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_owl")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1312410830]
+layer = 10
+
+[node name="TitleBar" type="Panel" parent="UI" unique_id=238185554]
+offset_right = 1280.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("TitleBarStyle")
+
+[node name="TitleLabel" type="Label" parent="UI/TitleBar" unique_id=1596853568]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.706)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "ECOBUHOS  |  CAMPUS EPN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RankBtn" type="Button" parent="UI/TitleBar" unique_id=1616944350]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 12.0
+offset_right = 1100.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = "🏆 RANKING EPN"
+
+[node name="QuitBtn" type="Button" parent="UI/TitleBar" unique_id=2040491807]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 12.0
+offset_right = 1260.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = "❌ SALIR"
+
+[node name="InfoPanel" type="Panel" parent="UI" unique_id=450693264]
+offset_left = 360.0
+offset_top = 558.0
+offset_right = 920.0
+offset_bottom = 712.0
+theme_override_styles/panel = SubResource("InfoPanelStyle")
+
+[node name="LvNameLabel" type="Label" parent="UI/InfoPanel" unique_id=427521722]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 560.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
+theme_override_font_sizes/font_size = 22
+text = "1.  Facultad de Mecanica"
+horizontal_alignment = 1
+
+[node name="LvDescLabel" type="Label" parent="UI/InfoPanel" unique_id=1812643216]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 550.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.8, 0.867, 0.941, 1)
+theme_override_font_sizes/font_size = 13
+text = "Domina el mundo de engranajes, maquinas e ingenieria industrial de la EPN."
+horizontal_alignment = 1
+
+[node name="EnterBtn" type="Button" parent="UI/InfoPanel" unique_id=776360435]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 100.0
+offset_right = 390.0
+offset_bottom = 146.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/disabled = SubResource("BtnDisabled")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = ">> ENTRAR"
+
+[node name="HintLabel" type="Label" parent="UI" unique_id=969186681]
+offset_top = 700.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(0.549, 0.549, 0.647, 1)
+theme_override_font_sizes/font_size = 11
+text = "< > Navegar   |   Enter o Clic para entrar"
+horizontal_alignment = 1
+
+[node name="FadeOverlay" type="ColorRect" parent="UI" unique_id=112790102]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

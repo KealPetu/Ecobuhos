@@ -1,0 +1,217 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhud001canvas"]
+
+[ext_resource type="Script" path="res://Scripts/Core/HUDController.gd" id="1_hud_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar"]
+bg_color = Color(0.039, 0.059, 0.176, 0.9)
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_win"]
+bg_color = Color(0.05, 0.12, 0.08, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.9, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_lose"]
+bg_color = Color(0.15, 0.05, 0.05, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9, 0.3, 0.3, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.87, 0.75, 0.42, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud_script")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_topbar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 1260.0
+offset_bottom = 50.0
+theme_override_constants/separation = 30
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "PUNTOS: 0"
+
+[node name="ComboLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.953, 0.612, 0.071, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "COMBO: x1.0"
+
+[node name="TimeLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.867, 0.941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "TIEMPO: 90s"
+
+[node name="ObjectiveLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.9, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 18
+text = "🎯 META: 0/5"
+
+[node name="InventoryBar" type="HBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BackBtn" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🗺️ Mapa Selector"
+
+[node name="FeedbackLabel" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 260.0
+offset_right = 1040.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0.2, 0.95, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsHint" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 685.0
+offset_right = 1260.0
+offset_bottom = 715.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 0.9)
+theme_override_font_sizes/font_size = 13
+text = "WASD: Moverse  |  Teclas [E], [Espacio] o [Enter]: Recoger Basura o Depositar en Tacho"
+horizontal_alignment = 1
+
+[node name="VictoryModal" type="PanelContainer" parent="."]
+visible = false
+offset_left = 340.0
+offset_top = 160.0
+offset_right = 940.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_win")
+
+[node name="VBox" type="VBoxContainer" parent="VictoryModal"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="VictoryModal/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.95, 0.4, 1)
+theme_override_font_sizes/font_size = 28
+text = "🎉 ¡NIVEL COMPLETADO!"
+horizontal_alignment = 1
+
+[node name="Details" type="Label" parent="VictoryModal/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "¡Excelente trabajo Guardián EPN!\n\n• Meta: 5/5 Residuos Reciclados\n• Puntaje Final: 750 pts\n• Precisión: 100%\n• Bonus de Tiempo: +150 pts\n\nHas purificado la Facultad de Mecánica."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VictoryMapBtn" type="Button" parent="VictoryModal/VBox"]
+custom_minimum_size = Vector2(220, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🗺️ Volver al Mapa"
+
+[node name="DefeatModal" type="PanelContainer" parent="."]
+visible = false
+offset_left = 340.0
+offset_top = 160.0
+offset_right = 940.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_lose")
+
+[node name="VBox" type="VBoxContainer" parent="DefeatModal"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Title" type="Label" parent="DefeatModal/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "⏰ ¡TIEMPO AGOTADO!"
+horizontal_alignment = 1
+
+[node name="Tip" type="Label" parent="DefeatModal/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 15
+text = "El campus se llenó de basura no segregada.\n\n💡 RETROALIMENTACIÓN PEDAGÓGICA:\nSepara los plásticos en el tacho azul (🥤), orgánicos en el verde (🍌) y vidrios en el celeste (🍾) para acumular combos más altos."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxButtons" type="HBoxContainer" parent="DefeatModal/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RetryBtn" type="Button" parent="DefeatModal/VBox/HBoxButtons"]
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🔄 Reintentar"
+
+[node name="DefeatMapBtn" type="Button" parent="DefeatModal/VBox/HBoxButtons"]
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🗺️ Mapa Selector"
