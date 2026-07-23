@@ -1116,9 +1116,10 @@ speed = 2.8
 [node name="InventoryComponent" type="Node" parent="." unique_id=1711584862]
 script = ExtResource("5_inv_script")
 
-[node name="InteractionComponent" type="Node" parent="." unique_id=1458123057 node_paths=PackedStringArray("inventory")]
+[node name="InteractionComponent" type="Node" parent="." unique_id=1458123057 node_paths=PackedStringArray("inventory", "input")]
 script = ExtResource("6_interact_script")
 inventory = NodePath("../InventoryComponent")
+input = NodePath("../InputComponent")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=796518056]
 libraries/ = SubResource("AnimationLibrary_nn08x")
