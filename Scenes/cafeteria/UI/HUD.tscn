@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ti64f56802if"]
+
+[ext_resource type="Script" uid="uid://cipvmiyrwkc0p" path="res://Scenes/cafeteria/UI/HUD.gd" id="1_wd1kg"]
+
+[node name="HUD" type="CanvasLayer" unique_id=8470368]
+script = ExtResource("1_wd1kg")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=706489909]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1711142470]
+layout_mode = 2
+
+[node name="LabelInventario" type="Label" parent="PanelContainer/MarginContainer" unique_id=439328257]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Cargando inventario..."

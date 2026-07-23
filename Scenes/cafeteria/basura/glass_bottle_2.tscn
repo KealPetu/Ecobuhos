@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cin1jh2yvtl5x"]
+
+[ext_resource type="PackedScene" uid="uid://e444cnou13bg" path="res://Assets/Models/Cafeteria/Basura/glass_bottle_2/scene.gltf" id="1_7yobu"]
+[ext_resource type="Script" uid="uid://cdfx8quwcfg1u" path="res://Assets/Models/Cafeteria/Basura/glass_bottle_2/BasuraBase.gd" id="2_8tiqr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2pv7"]
+size = Vector3(1.5092773, 1.2983398, 0.42285156)
+
+[node name="GlassBottle2" type="Node3D" unique_id=728014513]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." unique_id=919810262 instance=ExtResource("1_7yobu")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+script = ExtResource("2_8tiqr")
+tipo_basura = "vidrio"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene" unique_id=1601630622]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.4605713, 1.7999268, 0.02319336)
+shape = SubResource("BoxShape3D_y2pv7")

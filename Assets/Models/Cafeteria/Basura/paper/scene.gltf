@@ -1,0 +1,836 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.0870724618434906,
+        0.09050332754850388,
+        0.07217612117528915
+      ],
+      "min": [
+        -0.08894288539886475,
+        -0.07946512848138809,
+        -0.0846145823597908
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 5508,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9990463852882385,
+        0.9958013892173767,
+        0.9921287298202515
+      ],
+      "min": [
+        -0.9977095723152161,
+        -0.9971578121185303,
+        -0.9964562654495239
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9998022317886353,
+        0.9987545013427734,
+        0.9992051720619202,
+        1.0
+      ],
+      "min": [
+        -0.9659532308578491,
+        -0.9996514916419983,
+        -0.9933358430862427,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.3235705494880676,
+        0.9794237017631531
+      ],
+      "min": [
+        0.018814701586961746,
+        0.5782381892204285
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 3672,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.3235705494880676,
+        0.9794237017631531
+      ],
+      "min": [
+        0.018814701586961746,
+        0.5782381892204285
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2496,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 11016,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.06014658883213997,
+        0.15434226393699646,
+        0.10484778136014938
+      ],
+      "min": [
+        -0.15181271731853485,
+        -0.044096022844314575,
+        -0.07525822520256042
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 16524,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9983285665512085,
+        0.9996058940887451,
+        0.9978662133216858
+      ],
+      "min": [
+        -0.9959026575088501,
+        -0.9776482582092285,
+        -0.887283980846405
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 7344,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.8621405363082886,
+        0.9988197088241577,
+        0.9998530745506287,
+        1.0
+      ],
+      "min": [
+        -0.9982598423957825,
+        -0.993779182434082,
+        -0.999374270439148,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 7344,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.6415371298789978,
+        0.9800388813018799
+      ],
+      "min": [
+        0.33678117394447327,
+        0.5788533687591553
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 11016,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.6415371298789978,
+        0.9800388813018799
+      ],
+      "min": [
+        0.33678117394447327,
+        0.5788533687591553
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 9984,
+      "componentType": 5125,
+      "count": 2496,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 22032,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.05720999091863632,
+        0.14685922861099243,
+        0.0620117262005806
+      ],
+      "min": [
+        -0.1207483559846878,
+        -0.05861242860555649,
+        -0.08329495787620544
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 27540,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9890320301055908,
+        0.9898383021354675,
+        0.9999234080314636
+      ],
+      "min": [
+        -0.9986312985420227,
+        -0.9942792654037476,
+        -0.7879729270935059
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 14688,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.6188980937004089,
+        0.9809166789054871,
+        0.9947731494903564,
+        1.0
+      ],
+      "min": [
+        -0.9999354481697083,
+        -0.9891799092292786,
+        -0.9995577931404114,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 14688,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9825001955032349,
+        0.9831410646438599
+      ],
+      "min": [
+        0.664413332939148,
+        0.5644066333770752
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 18360,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9825001955032349,
+        0.9831410646438599
+      ],
+      "min": [
+        0.664413332939148,
+        0.5644066333770752
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 19968,
+      "componentType": 5125,
+      "count": 2496,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 33048,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.05872189998626709,
+        0.13227519392967224,
+        0.05811099708080292
+      ],
+      "min": [
+        -0.13197480142116547,
+        -0.06592044234275818,
+        -0.0573774129152298
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 38556,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9957545399665833,
+        0.9996523857116699,
+        0.9982198476791382
+      ],
+      "min": [
+        -0.9946805834770203,
+        -0.996669352054596,
+        -0.9320093393325806
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 22032,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.968403160572052,
+        0.9891851544380188,
+        0.9925892949104309,
+        1.0
+      ],
+      "min": [
+        -0.9955877661705017,
+        -0.8858693838119507,
+        -0.9901716709136963,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 22032,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.4564804136753082,
+        0.5510760545730591
+      ],
+      "min": [
+        0.062565878033638,
+        0.032520800828933716
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 25704,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.4564804136753082,
+        0.5510760545730591
+      ],
+      "min": [
+        0.062565878033638,
+        0.032520800828933716
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 29952,
+      "componentType": 5125,
+      "count": 2496,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 44064,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.06398117542266846,
+        0.08008009195327759,
+        0.08453352749347687
+      ],
+      "min": [
+        -0.0722888931632042,
+        -0.08222043514251709,
+        0.00967540591955185
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 49572,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9902709722518921,
+        0.9985143542289734,
+        0.9999984502792358
+      ],
+      "min": [
+        -0.9888802170753479,
+        -0.9661025404930115,
+        -0.9861866235733032
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 29376,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9408436417579651,
+        0.9786034226417542,
+        0.9985806941986084,
+        1.0
+      ],
+      "min": [
+        -0.9963219165802002,
+        -0.9590040445327759,
+        -0.9736518263816833,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 29376,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9777806997299194,
+        0.5406931042671204
+      ],
+      "min": [
+        0.5738520622253418,
+        0.008955143392086029
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 33048,
+      "componentType": 5126,
+      "count": 459,
+      "max": [
+        0.9777806997299194,
+        0.5406931042671204
+      ],
+      "min": [
+        0.5738520622253418,
+        0.008955143392086029
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 39936,
+      "componentType": 5125,
+      "count": 2496,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "janexx (https://sketchfab.com/janexx)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/crumbled-paper-c1a4b48d49dd402eb5731c93f130ce23",
+      "title": "Crumbled Paper"
+    },
+    "generator": "Sketchfab-12.94.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 49920,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36720,
+      "byteOffset": 49920,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 55080,
+      "byteOffset": 86640,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36720,
+      "byteOffset": 141720,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 178440,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/papersheets_baseColor.png"
+    },
+    {
+      "uri": "textures/papersheets_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "papersheets",
+      "normalTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8211145618000169
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Crumpled Paper 010_papersheets_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Crumpled Paper 020_papersheets_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6,
+            "TANGENT": 8,
+            "TEXCOORD_0": 9,
+            "TEXCOORD_1": 10
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Crumpled Paper 030_papersheets_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12,
+            "TANGENT": 14,
+            "TEXCOORD_0": 15,
+            "TEXCOORD_1": 16
+          },
+          "indices": 17,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Crumpled Paper 040_papersheets_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 19,
+            "POSITION": 18,
+            "TANGENT": 20,
+            "TEXCOORD_0": 21,
+            "TEXCOORD_1": 22
+          },
+          "indices": 23,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Crumpled Paper 050_papersheets_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 25,
+            "POSITION": 24,
+            "TANGENT": 26,
+            "TEXCOORD_0": 27,
+            "TEXCOORD_1": 28
+          },
+          "indices": 29,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "CrumbledPaper.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        44.583038330078125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.94878657864395e-06,
+        -44.58303833007808,
+        0.0,
+        0.0,
+        44.58303833007808,
+        -1.94878657864395e-06,
+        0.0,
+        0.01041758805513382,
+        6.807942867279053,
+        -48.02878952026367,
+        1.0
+      ],
+      "name": "Crumpled Paper 010"
+    },
+    {
+      "mesh": 0,
+      "name": "Crumpled Paper 010_papersheets_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        43.33180271722722,
+        -1.7562098208161432e-06,
+        -30.436236373358025,
+        0.0,
+        -25.203922566952404,
+        29.68519066951285,
+        -35.88260516536334,
+        0.0,
+        17.062439910646923,
+        43.84973911306431,
+        24.29164348718659,
+        0.0,
+        9.794361114501953,
+        0.6375054717063904,
+        -44.1995964050293,
+        1.0
+      ],
+      "name": "Crumpled Paper 020"
+    },
+    {
+      "mesh": 1,
+      "name": "Crumpled Paper 020_papersheets_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        77.31854248046875,
+        2.5063681464510596e-15,
+        -1.839366378158179e-16,
+        0.0,
+        1.8393725037163776e-16,
+        -11.287688771611059,
+        -76.49016337738664,
+        0.0,
+        -2.506368101496911e-15,
+        76.49016337738664,
+        -11.287688771611059,
+        0.0,
+        0.6136767864227295,
+        4.513662338256836,
+        -46.392845153808594,
+        1.0
+      ],
+      "name": "Crumpled Paper 030"
+    },
+    {
+      "mesh": 2,
+      "name": "Crumpled Paper 030_papersheets_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        32.17893103121924,
+        -2.7926227030078537e-06,
+        -57.19696219346949,
+        0.0,
+        -57.1969621934686,
+        -1.35517078331199e-05,
+        -32.178931031218085,
+        0.0,
+        -1.044154240576114e-05,
+        65.6275558471665,
+        -9.078640814203044e-06,
+        0.0,
+        1.8811076879501343,
+        3.7389259338378906,
+        -36.889503479003906,
+        1.0
+      ],
+      "name": "Crumpled Paper 040"
+    },
+    {
+      "mesh": 3,
+      "name": "Crumpled Paper 040_papersheets_0"
+    },
+    {
+      "children": [
+        12
+      ],
+      "matrix": [
+        76.0691557078969,
+        35.78312003957314,
+        -9.46660036100075,
+        0.0,
+        -12.215441720805659,
+        3.845580521651383,
+        -83.62151550558598,
+        0.0,
+        -34.94039437116457,
+        76.55941797252143,
+        8.624906560068785,
+        0.0,
+        5.550596714019775,
+        0.21949045360088348,
+        -38.35001754760742,
+        1.0
+      ],
+      "name": "Crumpled Paper 050"
+    },
+    {
+      "mesh": 4,
+      "name": "Crumpled Paper 050_papersheets_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}

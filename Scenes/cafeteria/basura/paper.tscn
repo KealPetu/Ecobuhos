@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://comdvwkl0nu33"]
+
+[ext_resource type="PackedScene" uid="uid://cvab0up2k5tg3" path="res://Assets/Models/Cafeteria/Basura/paper/scene.gltf" id="1_y3oyi"]
+[ext_resource type="Script" uid="uid://c2c4ysy0q8x1l" path="res://Assets/Models/Cafeteria/Basura/paper/BasuraBase.gd" id="2_ji47x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2pv7"]
+size = Vector3(0.8432617, 0.45336914, 1.1298828)
+
+[node name="Paper" type="Node3D" unique_id=426655565]
+
+[node name="Sketchfab_Scene" parent="." unique_id=982727837 instance=ExtResource("1_y3oyi")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("2_ji47x")
+tipo_basura = "papel"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene" unique_id=197198889]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.016784668, 0.04824829, -0.44254258)
+shape = SubResource("BoxShape3D_y2pv7")

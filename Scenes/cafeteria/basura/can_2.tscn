@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cldssw1cjn82v"]
+
+[ext_resource type="PackedScene" uid="uid://dehelesy0h036" path="res://Assets/Models/Cafeteria/Basura/can_2/scene.gltf" id="1_mgk64"]
+[ext_resource type="Script" uid="uid://clyv5wtebjm7t" path="res://Assets/Models/Cafeteria/Basura/can_2/BasuraBase.gd" id="2_j8w0s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2pv7"]
+size = Vector3(1.3444519, 3.4960022, 1.3500366)
+
+[node name="Can2" type="Node3D" unique_id=1163734150]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." unique_id=1880309314 instance=ExtResource("1_mgk64")]
+transform = Transform3D(0.017759034, -0.008077014, -0.0044020875, 0.00915334, 0.016466115, 0.006714416, 0.0009126411, -0.007976769, 0.018317703, 0, 0, 0)
+script = ExtResource("2_j8w0s")
+tipo_basura = "metal"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene" unique_id=1039558476]
+transform = Transform3D(44.397606, 22.883356, 2.2816064, -20.192545, 41.165295, -19.941925, -11.005219, 16.786041, 45.79426, 38.867016, 71.44204, 29.37249)
+shape = SubResource("BoxShape3D_y2pv7")

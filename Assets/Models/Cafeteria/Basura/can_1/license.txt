@@ -1,0 +1,11 @@
+Model Information:
+* title:	Can of Soda
+* source:	https://sketchfab.com/3d-models/can-of-soda-b78318034a0d44ceaa60e6550048b3a8
+* author:	Rodr1 (https://sketchfab.com/rodrigosecofiastre)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Can of Soda" (https://sketchfab.com/3d-models/can-of-soda-b78318034a0d44ceaa60e6550048b3a8) by Rodr1 (https://sketchfab.com/rodrigosecofiastre) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

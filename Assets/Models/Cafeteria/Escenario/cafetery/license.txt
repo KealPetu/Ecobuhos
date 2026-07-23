@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cafetery
+* source:	https://sketchfab.com/3d-models/cafetery-f019c964444d442f8999ab5f9c0f10fb
+* author:	Lucia Lokidottir (https://sketchfab.com/bordiyan20035)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cafetery" (https://sketchfab.com/3d-models/cafetery-f019c964444d442f8999ab5f9c0f10fb) by Lucia Lokidottir (https://sketchfab.com/bordiyan20035) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

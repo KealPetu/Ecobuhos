@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://pdvrvnovw0kk"]
+
+[ext_resource type="PackedScene" uid="uid://bcgi5h2i34xsr" path="res://Assets/Models/Cafeteria/Basura/food_1/scene.gltf" id="1_moh5b"]
+[ext_resource type="Script" uid="uid://qdff22r2xuol" path="res://Assets/Models/Cafeteria/Basura/food_1/BasuraBase.gd" id="2_7ff77"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2pv7"]
+size = Vector3(3.4466553, 1.2192383, 3.6349487)
+
+[node name="Food1" type="Node3D" unique_id=736119916]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." unique_id=1378168776 instance=ExtResource("1_moh5b")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+script = ExtResource("2_7ff77")
+tipo_basura = "organico"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene" unique_id=2113574147]
+transform = Transform3D(49.999996, 0, 0, 0, 49.999996, 0, 0, 0, 49.999996, 0.5950927, 5.480957, -4.820251)
+shape = SubResource("BoxShape3D_y2pv7")
