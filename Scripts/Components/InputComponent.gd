@@ -16,3 +16,6 @@ func is_jump_pressed() -> bool:
 
 func is_sprint_pressed() -> bool:
 	return Input.is_action_pressed("sprint")
+
+func is_interact_pressed() -> bool:
+	return Input.is_action_just_pressed("interact")

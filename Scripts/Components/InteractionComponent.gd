@@ -8,6 +8,7 @@ signal interaction_attempted(success: bool, message: String)
 
 @export var reach_distance: float = 2.5
 @export var inventory: InventoryComponent
+@export var input: InputComponent
 
 var _current_target_bin: RecyclingBin = null
 var _cooldown_timer: float = 0.0
@@ -58,15 +59,8 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_echo():
 		return
-
-	var is_interact_key: bool = false
-	if event.is_action_pressed("interact") or event.is_action_pressed("ui_accept"):
-		is_interact_key = true
-	elif event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_E or event.keycode == KEY_ENTER or event.keycode == KEY_SPACE:
-			is_interact_key = true
-
-	if is_interact_key:
+	
+	if input.is_interact_pressed():
 		_cooldown_timer = 0.25 # 250ms debouncing
 		get_viewport().set_input_as_handled()
 		try_interact()
