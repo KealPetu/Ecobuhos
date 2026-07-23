@@ -1,0 +1,11 @@
+Model Information:
+* title:	Crumbled Paper
+* source:	https://sketchfab.com/3d-models/crumbled-paper-c1a4b48d49dd402eb5731c93f130ce23
+* author:	janexx (https://sketchfab.com/janexx)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Crumbled Paper" (https://sketchfab.com/3d-models/crumbled-paper-c1a4b48d49dd402eb5731c93f130ce23) by janexx (https://sketchfab.com/janexx) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

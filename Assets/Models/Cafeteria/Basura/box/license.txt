@@ -1,0 +1,11 @@
+Model Information:
+* title:	LOW POLY trash box [LIGHTING]
+* source:	https://sketchfab.com/3d-models/low-poly-trash-box-lighting-f4426cdfba5f4fdc994c053d050557aa
+* author:	damp_egg (https://sketchfab.com/damp_egg)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "LOW POLY trash box [LIGHTING]" (https://sketchfab.com/3d-models/low-poly-trash-box-lighting-f4426cdfba5f4fdc994c053d050557aa) by damp_egg (https://sketchfab.com/damp_egg) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
