@@ -19,7 +19,7 @@ const LEVELS: Array = [
 		"id":        "sistemas",
 		"full_name": "Facultad de Sistemas",
 		"desc":      "Explora el mundo digital de la ingenieria informatica y el software.",
-		"scene":     "res://Scenes/FacultadSistemas.tscn",
+		"scene":     "res://Scenes/levels/Z1_Sistemas.tscn",
 		"locked":    true,
 		"number":    2,
 	},
@@ -27,7 +27,7 @@ const LEVELS: Array = [
 		"id":        "quimica",
 		"full_name": "Facultad de Quimica",
 		"desc":      "Descubre los secretos de la quimica y el cuidado del medio ambiente.",
-		"scene":     "res://Scenes/FacultadQuimica.tscn",
+		"scene":     "res://Scenes/levels/Z2_Quimica.tscn",
 		"locked":    true,
 		"number":    3,
 	},
@@ -35,7 +35,7 @@ const LEVELS: Array = [
 		"id":        "comedor",
 		"full_name": "Comedor Central EPN",
 		"desc":      "El corazon social del campus politecnico, donde se alimenta la comunidad EPN.",
-		"scene":     "res://Scenes/Comedor.tscn",
+		"scene":     "res://Scenes/levels/Z3_Comedor.tscn",
 		"locked":    true,
 		"number":    4,
 	},
@@ -44,7 +44,7 @@ const LEVELS: Array = [
 		"full_name": "Facultad de Agroindustria",
 		"desc":      "Aprende sobre sostenibilidad, cultivos y la industria alimentaria del Ecuador.",
 		"scene":     "res://Scenes/Levels/Z4_Agroindustria.tscn",
-		"locked":    false,
+		"locked":    true,
 		"number":    5,
 	},
 ]
@@ -62,6 +62,8 @@ const PATHS: Array = [[0, 1], [1, 2], [2, 3], [3, 4]]
 @onready var _name_label:    Label       = $UI/InfoPanel/LvNameLabel
 @onready var _desc_label:    Label       = $UI/InfoPanel/LvDescLabel
 @onready var _enter_btn:     Button      = $UI/InfoPanel/EnterBtn
+@onready var _reset_btn:     Button      = $UI/TitleBar/ResetProgressBtn if has_node("UI/TitleBar/ResetProgressBtn") else null
+@onready var _reset_dialog:  ConfirmationDialog = $UI/ResetProgressDialog if has_node("UI/ResetProgressDialog") else null
 
 # --- Estado ---
 var _level_nodes:   Array[Control] = []
@@ -69,6 +71,21 @@ var _selected:      int   = 0
 var _target_pos:    Vector2 = Vector2.ZERO
 var _transitioning: bool   = false
 var _bounce_t:      float  = 0.0
+
+
+func _is_level_locked(idx: int) -> bool:
+	if GameManager:
+		return not GameManager.is_level_unlocked(idx)
+	return bool(LEVELS[idx]["locked"])
+
+
+func _refresh_level_node(idx: int) -> void:
+	if idx < 0 or idx >= _level_nodes.size():
+		return
+	var nc: Control = _level_nodes[idx]
+	var lock_icon: Label = nc.get_node_or_null("LockIcon") as Label
+	if lock_icon:
+		lock_icon.visible = _is_level_locked(idx)
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -90,6 +107,7 @@ func _ready() -> void:
 	# Cargar iconos de edificios y conectar botones de clic
 	for i: int in _level_nodes.size():
 		_init_level_node(i)
+		_refresh_level_node(i)
 
 	# Caminos
 	_paths_node.draw.connect(_draw_paths)
@@ -97,6 +115,10 @@ func _ready() -> void:
 
 	# Boton ENTRAR
 	_enter_btn.pressed.connect(_on_enter_pressed)
+	if _reset_btn:
+		_reset_btn.pressed.connect(_confirm_reset_progress)
+	if _reset_dialog:
+		_reset_dialog.confirmed.connect(_reset_progress_and_refresh)
 
 	# Boton SALIR DEL JUEGO
 	var quit_btn: Button = get_node_or_null("UI/TitleBar/QuitBtn") as Button
@@ -114,12 +136,14 @@ func _ready() -> void:
 
 	# Estado inicial: ir al primer nivel desbloqueado
 	for i: int in LEVELS.size():
-		if not bool(LEVELS[i]["locked"]):
+		if not _is_level_locked(i):
 			_selected = i
 			break
 
 	_target_pos = _center_of(_selected)
 	_player.position = _target_pos
+	for i: int in _level_nodes.size():
+		_set_glow(i, i == _selected)
 	_update_info(_selected)
 	_set_glow(_selected, true)
 
@@ -192,7 +216,7 @@ func _navigate(dir: int) -> void:
 
 
 func _on_pin_clicked(idx: int) -> void:
-	if idx == _selected and not bool(LEVELS[idx]["locked"]):
+	if idx == _selected and not _is_level_locked(idx):
 		_try_enter(idx)
 	else:
 		_set_glow(_selected, false)
@@ -211,10 +235,31 @@ func _on_enter_pressed() -> void:
 	_try_enter(_selected)
 
 
+func _confirm_reset_progress() -> void:
+	if _reset_dialog:
+		_reset_dialog.popup_centered()
+		return
+	_reset_progress_and_refresh()
+
+
+func _reset_progress_and_refresh() -> void:
+	if GameManager:
+		GameManager.reset_level_progress()
+	for i: int in _level_nodes.size():
+		_refresh_level_node(i)
+	_set_glow(_selected, false)
+	_selected = 0
+	_target_pos = _center_of(_selected)
+	_player.position = _target_pos
+	_set_glow(_selected, true)
+	_update_info(_selected)
+	_paths_node.queue_redraw()
+
+
 func _try_enter(idx: int) -> void:
 	if _transitioning:
 		return
-	if bool(LEVELS[idx]["locked"]):
+	if _is_level_locked(idx):
 		_shake_pin(idx)
 		return
 	_transitioning = true
@@ -239,8 +284,8 @@ func _update_info(idx: int) -> void:
 	_name_label.text = str(lv["number"]) + ".  " + str(lv["full_name"])
 	_desc_label.text = str(lv["desc"])
 
-	var locked: bool = bool(lv["locked"])
-	_enter_btn.text     = ">>\u00a0ENTRAR" if not locked else "[BLOQUEADO]"
+	var locked: bool = _is_level_locked(idx)
+	_enter_btn.text     = ">> ENTRAR" if not locked else "[BLOQUEADO]"
 	_enter_btn.disabled = locked
 
 	# Animacion de entrada del panel
@@ -258,7 +303,7 @@ func _draw_paths() -> void:
 		var j: int = int(pair[1])
 		var a: Vector2 = _center_of(i)
 		var b: Vector2 = _center_of(j)
-		var locked: bool = bool(LEVELS[j]["locked"])
+		var locked: bool = _is_level_locked(j)
 		var col: Color   = Color(0.83, 0.73, 0.42, 0.75) if not locked else Color(0.45, 0.45, 0.45, 0.4)
 
 		# Sombra del camino

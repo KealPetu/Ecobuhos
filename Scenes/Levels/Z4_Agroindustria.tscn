@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7wi4njundy84" path="res://Assets/Models/chair.glb" id="3_scap4"]
 [ext_resource type="PackedScene" uid="uid://btff3cfeiut2w" path="res://Scenes/Prefabs/RecyclingBin.tscn" id="6_fod6b"]
 [ext_resource type="PackedScene" uid="uid://bwaste001item" path="res://Scenes/Prefabs/WasteItem.tscn" id="7_u471p"]
+[ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="8_s0sqo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4ir4"]
 albedo_texture = ExtResource("2_blu3v")
@@ -271,3 +272,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15926707, 0.28312975, 1.91
 
 [node name="WasteItem7" parent="Residuos" unique_id=1553954442 instance=ExtResource("7_u471p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.405598, 0.28312975, -3.1631188)
+
+[node name="HUD" parent="." unique_id=494020750 instance=ExtResource("8_s0sqo")]

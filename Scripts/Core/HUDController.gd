@@ -48,6 +48,9 @@ func _ready() -> void:
 		GameManager.level_failed.connect(_on_level_failed)
 		GameManager.level_completed.connect(_on_level_completed)
 		GameManager.mapache_activated.connect(_on_mapache_activated)
+		var current_scene: Node = get_tree().current_scene
+		if current_scene:
+			GameManager.set_current_level_from_scene_path(current_scene.scene_file_path)
 		GameManager.start_level(5, 90.0)
 		_update_objective()
 
@@ -75,7 +78,7 @@ func _ready() -> void:
 	_find_and_connect_player()
 
 func _go_to_map() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Levels/Z4_Agroindustria.tscn")
+	get_tree().change_scene_to_file("res://Scenes/LevelSelect.tscn")
 
 func _find_and_connect_player() -> void:
 	var players = get_tree().get_nodes_in_group("player")

@@ -19,6 +19,9 @@ func _ready() -> void:
 func start_mission(waste_target: int, time_limit: float) -> void:
 	_deposits_this_mission = 0
 	_correct_deposits = 0
+	var current_scene: Node = get_tree().current_scene
+	if current_scene:
+		GameManager.set_current_level_from_scene_path(current_scene.scene_file_path)
 	GameManager.start_level(waste_target, time_limit)
 
 func _on_waste_deposited(waste_type: String, correct: bool) -> void:

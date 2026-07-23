@@ -48,7 +48,6 @@ material = SubResource("StandardMaterial3D_mbxq7")
 
 [node name="Bin_Organico" parent="Bins" unique_id=759747557 instance=ExtResource("4_bin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 0, -10.5)
-accepts_type = "plastic"
 bin_color = Color(0.153, 0.682, 0.376, 1)
 
 [node name="Bin_Plastico" parent="Bins" unique_id=1539812840 instance=ExtResource("4_bin")]
@@ -70,7 +69,7 @@ bin_color = Color(0.953, 0.612, 0.071, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2017345, 0, 0)
 
 [node name="Waste_Cascara" parent="WasteItems" unique_id=1990600575 instance=ExtResource("5_waste")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5, 0.3, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
 label_text = "Cáscara Guineo"
 
 [node name="Waste_Botella" parent="WasteItems" unique_id=569237438 instance=ExtResource("5_waste")]
@@ -97,3 +96,19 @@ label_text = "Batería Usada"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 0.3, -4.5)
 waste_type = "paper"
 label_text = "Periódico"
+
+[node name="Waste_Cascara2" parent="WasteItems" unique_id=583767682 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara3" parent="WasteItems" unique_id=2031034018 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara4" parent="WasteItems" unique_id=186311921 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"
+
+[node name="Waste_Cascara5" parent="WasteItems" unique_id=1952413768 instance=ExtResource("5_waste")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.74582, 0, -4.952255)
+label_text = "Cáscara Guineo"

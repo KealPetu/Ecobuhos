@@ -18,6 +18,8 @@ var combo_count: int = 0
 var combo_multiplier: float = 1.0
 var time_remaining: float = 0.0
 var is_playing: bool = false
+var current_level_index: int = 0
+var highest_unlocked_level: int = 0
 
 var level_target: int = 5         # Objetivo: reciclar 5 residuos correctamente
 var total_deposits: int = 0       # Total de intentos de deposito
@@ -42,6 +44,8 @@ const BADGES: Dictionary = {
 
 func _ready() -> void:
 	load_profile()
+	current_level_index = clampi(current_level_index, 0, 4)
+	highest_unlocked_level = clampi(highest_unlocked_level, 0, 4)
 
 func start_level(target_waste_count: int = 5, time_limit: float = 90.0) -> void:
 	level_target = target_waste_count
@@ -57,6 +61,41 @@ func start_level(target_waste_count: int = 5, time_limit: float = 90.0) -> void:
 	score_changed.emit(score)
 	combo_changed.emit(combo_multiplier)
 	xp_changed.emit(player_xp)
+
+func set_current_level(level_index: int) -> void:
+	current_level_index = clampi(level_index, 0, 4)
+
+func set_current_level_from_scene_path(scene_path: String) -> void:
+	var normalized_path: String = scene_path.to_lower()
+	if normalized_path.ends_with("mapaepn.tscn"):
+		set_current_level(0)
+	elif normalized_path.ends_with("z1_sistemas.tscn") or normalized_path.ends_with("facultadsistemas.tscn"):
+		set_current_level(1)
+	elif normalized_path.ends_with("z2_quimica.tscn"):
+		set_current_level(2)
+	elif normalized_path.ends_with("z3_comedor.tscn"):
+		set_current_level(3)
+	elif normalized_path.ends_with("z4_agroindustria.tscn"):
+		set_current_level(4)
+	else:
+		set_current_level(0)
+
+func is_level_unlocked(level_index: int) -> bool:
+	return level_index <= highest_unlocked_level
+
+func unlock_level(level_index: int) -> void:
+	var clamped_level: int = clampi(level_index, 0, 4)
+	if clamped_level > highest_unlocked_level:
+		highest_unlocked_level = clamped_level
+		save_profile()
+
+func unlock_next_level() -> void:
+	unlock_level(current_level_index + 1)
+
+func reset_level_progress() -> void:
+	highest_unlocked_level = 0
+	current_level_index = 0
+	save_profile()
 
 func deposit_waste(waste_type: String, bin_type: String) -> bool:
 	if not is_playing:
@@ -107,6 +146,7 @@ func _process(delta: float) -> void:
 
 func _trigger_victory() -> void:
 	is_playing = false
+	unlock_next_level()
 	var time_bonus: int = int(time_remaining * 10.0)
 	score += time_bonus
 	
@@ -163,7 +203,8 @@ func end_game() -> void:
 func save_profile() -> void:
 	var data: Dictionary = {
 		"player_name": player_name,
-		"player_xp": player_xp
+		"player_xp": player_xp,
+		"highest_unlocked_level": highest_unlocked_level
 	}
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -181,6 +222,7 @@ func load_profile() -> void:
 				var data = json.data
 				player_name = data.get("player_name", "Estudiante EPN")
 				player_xp = int(data.get("player_xp", 0))
+				highest_unlocked_level = clampi(int(data.get("highest_unlocked_level", 0)), 0, 4)
 
 func get_leaderboard() -> Array:
 	if FileAccess.file_exists(LEADERBOARD_PATH):
