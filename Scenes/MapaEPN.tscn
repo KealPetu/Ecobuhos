@@ -28,15 +28,15 @@ tonemap_mode = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Overworld" unique_id=435279236]
 environment = SubResource("Environment_su5g8")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Overworld"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Overworld" unique_id=799321600]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 20, 0)
 light_color = Color(1, 0.96, 0.9, 1)
 light_energy = 1.2
 shadow_enabled = true
 
 [node name="Player" parent="Overworld" unique_id=1650471665 instance=ExtResource("2_mbxq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0, 0.05, -5.0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.05, -5)
 
 [node name="TestLevel" parent="Overworld" unique_id=899220094 instance=ExtResource("1_mbxq7")]
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=860109219 instance=ExtResource("3_hud")]

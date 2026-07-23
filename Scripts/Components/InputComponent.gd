@@ -11,4 +11,11 @@ func get_movement_vector() -> Vector2:
 
 
 func is_jump_pressed() -> bool:
-	return Input.is_action_just_pressed("ui_accept")
+	return Input.is_action_just_pressed("jump")
+
+
+func is_sprint_pressed() -> bool:
+	return Input.is_action_pressed("sprint")
+
+func is_interact_pressed() -> bool:
+	return Input.is_action_just_pressed("interact")
