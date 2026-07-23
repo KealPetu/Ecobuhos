@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://dio5pj0h0fi6u"]
+
+[ext_resource type="Texture2D" uid="uid://c4ggr8xl4sqjg" path="res://Assets/Textures/terreno.jpg" id="1_qeehk"]
+[ext_resource type="Texture2D" uid="uid://mgtl17k6hc2t" path="res://Assets/Textures/epn.png" id="2_yx74o"]
+[ext_resource type="Texture2D" uid="uid://c6hhrysltbme0" path="res://Assets/Textures/fim.png" id="3_wi6b2"]
+[ext_resource type="Texture2D" uid="uid://5e1lqvwtdd84" path="res://Assets/Textures/15.png" id="4_67ymj"]
+[ext_resource type="PackedScene" uid="uid://bbrh1k7iwro2a" path="res://Assets/Models/wrenches.glb" id="5_67ymj"]
+[ext_resource type="PackedScene" uid="uid://cot6chra4h3y5" path="res://Assets/Models/recycle_bin.glb" id="6_ldkd2"]
+[ext_resource type="PackedScene" uid="uid://81wfl44uporu" path="res://Assets/Models/shelf.glb" id="7_5hm5e"]
+[ext_resource type="PackedScene" uid="uid://bcq4jx0itq6xr" path="res://Assets/Models/industrial_table.glb" id="9_olnyy"]
+[ext_resource type="PackedScene" uid="uid://c6llrjrfysrkp" path="res://Assets/Models/forklift.glb" id="10_olnyy"]
+[ext_resource type="PackedScene" uid="uid://q6conqsc71yw" path="res://Assets/Models/torno.glb" id="12_5gxwj"]
+[ext_resource type="PackedScene" uid="uid://b1eh2lo8dui3f" path="res://Assets/Models/air_compressor.glb" id="13_fsa8m"]
+[ext_resource type="PackedScene" uid="uid://ciib5ywnif1fp" path="res://Assets/Models/welding_cart.glb" id="14_r74ob"]
+[ext_resource type="PackedScene" uid="uid://2ptn7lr1xje6" path="res://Assets/Models/metal_barrel.glb" id="15_ao3rc"]
+[ext_resource type="PackedScene" uid="uid://4slf1llhkws1" path="res://Assets/Models/recogible_metales.glb" id="16_kwt8j"]
+[ext_resource type="PackedScene" uid="uid://dq3hnvjbtu44s" path="res://Assets/Models/recogible_motor.glb" id="17_8e8ep"]
+[ext_resource type="PackedScene" uid="uid://dup8cxvw28ijb" path="res://Assets/Models/recogible_carton.glb" id="18_u3gbw"]
+[ext_resource type="PackedScene" uid="uid://c1a2o7tsrag35" path="res://Assets/Models/recogible_papel.glb" id="19_aj4gd"]
+[ext_resource type="PackedScene" uid="uid://b7agvmn3cjh7m" path="res://Assets/Models/recogible_neumaticos.glb" id="20_3446w"]
+[ext_resource type="PackedScene" uid="uid://c60kiw3kc2arm" path="res://Assets/Models/recogible_lubricante.glb" id="21_rqenu"]
+[ext_resource type="PackedScene" uid="uid://clg414186c6xl" path="res://Assets/Models/recogible_botella.glb" id="22_57k5d"]
+[ext_resource type="PackedScene" uid="uid://d28xgurfk2kp3" path="res://Assets/Models/recogible_funda.glb" id="23_38m4t"]
+[ext_resource type="PackedScene" uid="uid://6dcphsbqum3g" path="res://Assets/Models/crashed_car.glb" id="23_3446w"]
+[ext_resource type="PackedScene" uid="uid://coqo2t7ge8rig" path="res://Assets/Models/prensa.glb" id="23_rqenu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldkd2"]
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wbq7l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hm5e"]
+albedo_color = Color(0.827451, 0.18431373, 0.18431373, 1)
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_olnyy"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olnyy"]
+albedo_color = Color(0.827451, 0.18431373, 0.18431373, 1)
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_85xa5"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85xa5"]
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5gxwj"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gxwj"]
+albedo_color = Color(0.5568628, 0.5568628, 0.5764706, 1)
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fsa8m"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsa8m"]
+albedo_color = Color(0.5568628, 0.5568628, 0.5764706, 1)
+albedo_texture = ExtResource("1_qeehk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r74ob"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="ZonaMecanica" type="Node3D" unique_id=22972617]
+
+[node name="suelo" type="MeshInstance3D" parent="." unique_id=1957411682]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ldkd2")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="pared" type="MeshInstance3D" parent="." unique_id=734487693]
+transform = Transform3D(15, 0, 0, 0, -4.371139e-08, -5, 0, 1, -2.1855695e-07, 0, 2, 2.92)
+material_override = SubResource("StandardMaterial3D_5hm5e")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="epn" type="Sprite3D" parent="pared" unique_id=1354611526]
+transform = Transform3D(-0.04, 6.0398317e-09, -2.6400945e-16, -1.0587912e-22, -1.7484485e-09, -0.04, -6.039832e-09, -0.04, 1.7484554e-09, 0.09270971, -0.51279473, -0.3430584)
+texture = ExtResource("2_yx74o")
+
+[node name="fim" type="Sprite3D" parent="pared" unique_id=869145879]
+transform = Transform3D(-0.04, -6.0398317e-09, 2.6400945e-16, 1.0587912e-22, -1.7484494e-09, -0.04, 6.039832e-09, -0.04, 1.7484554e-09, -0.16012222, -0.5085511, -0.34445095)
+texture = ExtResource("3_wi6b2")
+
+[node name="edificio15" type="Sprite3D" parent="pared" unique_id=1176277272]
+transform = Transform3D(-0.02, -3.0199159e-09, 1.3200472e-16, 5.293956e-23, -8.742269e-10, -0.02, 3.019916e-09, -0.02, 8.742277e-10, 0.3264528, -0.8199549, -0.35532254)
+texture = ExtResource("4_67ymj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pared" unique_id=90672298]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared/StaticBody3D" unique_id=2118491664]
+shape = SubResource("ConvexPolygonShape3D_olnyy")
+
+[node name="pared2" type="MeshInstance3D" parent="." unique_id=998829000]
+transform = Transform3D(15, 0, 0, 0, -4.371139e-08, -5, 0, 1, -2.1855695e-07, 0, 2, -2.929)
+material_override = SubResource("StandardMaterial3D_olnyy")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pared2" unique_id=1576810618]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared2/StaticBody3D" unique_id=1818028188]
+shape = SubResource("ConvexPolygonShape3D_85xa5")
+
+[node name="pared3" type="MeshInstance3D" parent="." unique_id=963389564]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_85xa5")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pared3" unique_id=1042300196]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared3/StaticBody3D" unique_id=1806497111]
+shape = SubResource("ConvexPolygonShape3D_5gxwj")
+
+[node name="pared4" type="MeshInstance3D" parent="." unique_id=839610827]
+transform = Transform3D(-2.1855695e-07, -1, 0, 5, -4.371139e-08, 0, 0, 0, 5, 7, 2, 0)
+material_override = SubResource("StandardMaterial3D_5gxwj")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pared4" unique_id=1248334775]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared4/StaticBody3D" unique_id=1505445522]
+shape = SubResource("ConvexPolygonShape3D_fsa8m")
+
+[node name="pared5" type="MeshInstance3D" parent="." unique_id=829488718]
+transform = Transform3D(-2.1855695e-07, -1, 0, 5, -4.371139e-08, 0, 0, 0, 5, -7, 2, 0)
+material_override = SubResource("StandardMaterial3D_fsa8m")
+mesh = SubResource("BoxMesh_wbq7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pared5" unique_id=315989278]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared5/StaticBody3D" unique_id=2057357234]
+shape = SubResource("ConvexPolygonShape3D_r74ob")
+
+[node name="llaves" parent="." unique_id=247447177 instance=ExtResource("5_67ymj")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -6.2851934, 2.1299617, 0.7320037)
+
+[node name="llaves2" parent="." unique_id=1363533835 instance=ExtResource("5_67ymj")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -6.2851934, 2.1299617, -0.9175012)
+
+[node name="isla_ecologica" parent="." unique_id=1182326470 instance=ExtResource("6_ldkd2")]
+transform = Transform3D(-0.2, 0, 1.7484556e-08, 0, 0.2, 0, -1.7484556e-08, 0, -0.2, -5.836612, 0.5, 2.252993)
+
+[node name="onboarding" type="Label3D" parent="isla_ecologica" unique_id=367874605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6903076, 4.3920746, -0.7597227)
+text = "Deposita en el tacho:
+🟠 Naranja: Metales
+🔵 Azul: Papel y cartón
+🟢 Verde: Neumáticos y químicos
+🔴 Rojo: Plásticos"
+font_size = 55
+
+[node name="estantes_aceites" parent="." unique_id=683695566 instance=ExtResource("7_5hm5e")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -5.2097473, 0.50076425, -2.26084)
+
+[node name="estantes_aceites2" parent="." unique_id=1579602091 instance=ExtResource("7_5hm5e")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -3.4886136, 0.50076425, -2.26084)
+
+[node name="estantes_aceites3" parent="." unique_id=1841226502 instance=ExtResource("7_5hm5e")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, 4.1510096, 0.50076425, -2.26084)
+
+[node name="estantes_aceites4" parent="." unique_id=1069563829 instance=ExtResource("7_5hm5e")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.2511683, 0.50076425, 2.2495625)
+
+[node name="mesa" parent="." unique_id=2136645733 instance=ExtResource("9_olnyy")]
+transform = Transform3D(-2.1855694e-10, 0, -0.005, 0, 0.005, 0, 0.005, 0, -2.1855694e-10, 2.8245301, 0.5000117, -1.0611658)
+
+[node name="mesa2" parent="." unique_id=1219808050 instance=ExtResource("9_olnyy")]
+transform = Transform3D(-2.1855694e-10, 0, -0.005, 0, 0.005, 0, 0.005, 0, -2.1855694e-10, 2.8245301, 0.5000117, 0.8624269)
+
+[node name="mesa3" parent="." unique_id=1822343283 instance=ExtResource("9_olnyy")]
+transform = Transform3D(-0.005, 0, 4.3711387e-10, 0, 0.005, 0, -4.3711387e-10, 0, -0.005, -1.4967642, 0.5000117, -0.8147739)
+
+[node name="montacargas" parent="." unique_id=1747906860 instance=ExtResource("10_olnyy")]
+transform = Transform3D(-0.0021287124, 0, 0.0021139025, 0, 0.003, 0, -0.0021139025, 0, -0.0021287124, -2.1081743, 0.5213529, 1.2921383)
+
+[node name="torno" parent="." unique_id=1002818323 instance=ExtResource("12_5gxwj")]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, -3.7618976, 0.87736607, -0.22196722)
+
+[node name="compresor" parent="." unique_id=1687072713 instance=ExtResource("13_fsa8m")]
+transform = Transform3D(-0.31692988, 0, 0.6241438, 0, 0.70000005, 0, -0.6241438, 0, -0.31692988, 5.98995, 0.50061333, -1.9721895)
+
+[node name="compresor2" parent="." unique_id=452427429 instance=ExtResource("13_fsa8m")]
+transform = Transform3D(0.40741447, 0, -0.56922174, 0, 0.70000005, 0, 0.56922174, 0, 0.40741447, -5.9778843, 0.50061333, -1.8755784)
+
+[node name="compresor3" parent="." unique_id=340189141 instance=ExtResource("13_fsa8m")]
+transform = Transform3D(-0.61488837, 0, 0.33453286, 0, 0.7000001, 0, -0.33453286, 0, -0.61488837, -0.23427343, 0.50061333, 1.5733182)
+
+[node name="equipo_soldadura" parent="." unique_id=453712273 instance=ExtResource("14_r74ob")]
+transform = Transform3D(-0.10572542, 0, 0.38577473, 0, 0.4, 0, -0.38577473, 0, -0.10572542, 6.083155, 0.5003171, 0.1907795)
+
+[node name="equipo_soldadura2" parent="." unique_id=1334392177 instance=ExtResource("14_r74ob")]
+transform = Transform3D(-0.10572542, 0, 0.38577473, 0, 0.4, 0, -0.38577473, 0, -0.10572542, 0.5981401, 0.5003171, 0.14905906)
+
+[node name="equipo_soldadura3" parent="." unique_id=1520484441 instance=ExtResource("14_r74ob")]
+transform = Transform3D(0.17437562, 0, -0.35999048, 0, 0.39999998, 0, 0.35999048, 0, 0.17437562, -4.0809546, 0.5003171, 1.1853914)
+
+[node name="barriles" parent="." unique_id=1875847242 instance=ExtResource("15_ao3rc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.8298677, 0.5448959, -0.90265626)
+
+[node name="barriles2" parent="." unique_id=1372717925 instance=ExtResource("15_ao3rc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.7016546, 0.5448959, 0.9267847)
+
+[node name="barriles3" parent="." unique_id=1597222735 instance=ExtResource("15_ao3rc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.6366737, 0.5448959, -0.2349438)
+
+[node name="recogible_metales" parent="." unique_id=1039999549 instance=ExtResource("16_kwt8j")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.9352376, 0.5350072, -1.7432708)
+
+[node name="recogible_metales2" parent="." unique_id=1444677382 instance=ExtResource("16_kwt8j")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 5.685911, 0.5350072, -1.0730839)
+
+[node name="recogible_motor_metal" parent="." unique_id=740138040 instance=ExtResource("17_8e8ep")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.56324, 0.6122761, 0.3322636)
+
+[node name="recogible_motor_metal2" parent="." unique_id=1750405490 instance=ExtResource("17_8e8ep")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.9019134, 0.6122761, 2.222672)
+
+[node name="recogible_carton" parent="." unique_id=1752490385 instance=ExtResource("18_u3gbw")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.5836933, 0.5010779, -2.0524764)
+
+[node name="recogible_papel" parent="." unique_id=1929983138 instance=ExtResource("19_aj4gd")]
+transform = Transform3D(0.006, 0, 0, 0, 0.006, 0, 0, 0, 0.006, 3.6213572, 0.52828693, -2.2420657)
+
+[node name="recogible_neumatico" parent="." unique_id=648171302 instance=ExtResource("20_3446w")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, -6.132403, 0.5075023, -0.28864855)
+
+[node name="recogible_lubricante" parent="." unique_id=126027654 instance=ExtResource("21_rqenu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1413963, 0.5, -0.8574196)
+
+[node name="recogible_botella_plastico" parent="." unique_id=1205454200 instance=ExtResource("22_57k5d")]
+transform = Transform3D(0.67577, 0, 0.7371126, 0, 1, 0, -0.7371126, 0, 0.67577, 0.7700002, 0.4253044, -0.5756414)
+
+[node name="recogible_botella_plastico2" parent="." unique_id=1685582368 instance=ExtResource("22_57k5d")]
+transform = Transform3D(0.67577, 0, 0.7371126, 0, 1, 0, -0.7371126, 0, 0.67577, 0.58774114, 0.4253044, 1.7497951)
+
+[node name="recogible_funda_plastico" parent="." unique_id=2080350547 instance=ExtResource("23_38m4t")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 3.338827, 0.5774127, 0.06698233)
+
+[node name="recogible_funda_plastico2" parent="." unique_id=1161786567 instance=ExtResource("23_38m4t")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 1.6216111, 0.5774127, -1.1702418)
+
+[node name="carro_destruido" parent="." unique_id=401164604 instance=ExtResource("23_3446w")]
+transform = Transform3D(-0.16270587, 0, 0.11630478, 0, 0.2, 0, -0.11630478, 0, -0.16270587, -0.23725736, 0.5645704, -0.27242112)
+
+[node name="prensa_hidraulica" parent="." unique_id=1109797514 instance=ExtResource("23_rqenu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.102987, 2.0024142, 1.359969)
