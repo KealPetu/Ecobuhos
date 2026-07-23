@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bwaste001item"]
+
+[ext_resource type="Script" uid="uid://cs6h4k8sjx6cv" path="res://Scripts/Entities/WasteItem.gd" id="1_waste_script"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_waste"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_waste"]
+albedo_color = Color(0.95, 0.6, 0.1, 1)
+roughness = 0.3
+
+[node name="WasteItem" type="RigidBody3D" unique_id=583767682 groups=["waste_items"]]
+mass = 0.5
+script = ExtResource("1_waste_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=709141604]
+shape = SubResource("SphereShape3D_waste")
+
+[node name="MeshInstance3D" type="CSGSphere3D" parent="." unique_id=1584835684]
+radius = 0.3
+rings = 8
+material = SubResource("StandardMaterial3D_waste")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1761620876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+billboard = 1
+double_sided = false
+text = "Cáscara"
+font_size = 28
+outline_size = 6

@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://u1aq5sdxhvbt" path="res://Scripts/CameraController.gd" id="2_kyqiw"]
 [ext_resource type="Script" uid="uid://nhk86wmll0lp" path="res://Scripts/Components/InputComponent.gd" id="3_dewec"]
 [ext_resource type="Script" uid="uid://beq8hnktdi2ni" path="res://Scripts/Components/MovementComponent.gd" id="4_5ixxa"]
+[ext_resource type="Script" path="res://Scripts/Core/InventoryComponent.gd" id="5_inv_script"]
+[ext_resource type="Script" path="res://Scripts/Core/InteractionComponent.gd" id="6_interact_script"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8qfr"]
 resource_name = "Ecobuho-mat"
@@ -810,11 +812,18 @@ _data = {
 &"walk": SubResource("Animation_52ee3")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=1650471665 node_paths=PackedStringArray("camera_pivot", "input_component", "movement_component")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 2.5
+
+
+[node name="Player" type="CharacterBody3D" unique_id=1650471665 node_paths=PackedStringArray("camera_pivot", "input_component", "movement_component", "inventory_component", "interaction_component")]
+
 script = ExtResource("1_rpqav")
 camera_pivot = NodePath("CameraPivot")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
+inventory_component = NodePath("InventoryComponent")
+interaction_component = NodePath("InteractionComponent")
 
 [node name="EcobuhoMesh" type="Node3D" parent="." unique_id=1228837635]
 
@@ -1061,14 +1070,15 @@ skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_52ee3")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1244747811]
-transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 0.15, 0.5, 0)
+transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 0.15, 1.2, 0)
 script = ExtResource("2_kyqiw")
-spring_length = 1.0
+spring_length = 3.5
 
 [node name="SpringArm" type="SpringArm3D" parent="CameraPivot" unique_id=2036728512]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot/SpringArm" unique_id=1651460416]
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1694380666]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.5, 0)
@@ -1084,3 +1094,18 @@ speed = 2.8
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=796518056]
 libraries/ = SubResource("AnimationLibrary_nn08x")
 autoplay = &"idle"
+
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource("5_inv_script")
+capacity = 5
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("inventory")]
+script = ExtResource("6_interact_script")
+inventory = NodePath("../InventoryComponent")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.5, 0)
+shape = SubResource("SphereShape3D_area")
+

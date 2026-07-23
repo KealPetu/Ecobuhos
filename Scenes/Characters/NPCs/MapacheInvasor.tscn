@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bqxn2biqabudc"]
 
 [ext_resource type="Texture2D" uid="uid://bsu8cvstbou3a" path="res://Assets/Models/Mapache-Invasor_raccoon_character_3d_model_basecolor.jpg" id="1_0ndj4"]
+[ext_resource type="Script" uid="uid://des3wyveoce0n" path="res://Scripts/Entities/MapacheInvasor.gd" id="2_mapache_script"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ithot"]
 resource_name = "tripo_mat_ef9bd50b"
@@ -96,32 +97,18 @@ bind/20/name = &"R_Hand"
 bind/20/bone = -1
 bind/20/pose = Transform3D(-1, 2.1147546e-25, -1.4191878e-18, 6.6000887e-16, -1.490116e-07, 0.9999999, -2.028772e-32, 1.0000001, 0, 0.094495684, -0.36057436, -0.5061961)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2xyw"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ndj4"]
-next_pass = SubResource("StandardMaterial3D_d2xyw")
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_0ndj4")
-roughness = 0.0
-stencil_mode = 1
-stencil_flags = 2
+roughness = 0.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d2xyw"]
 radius = 0.3935547
 height = 0.9667969
 
-[node name="MapacheInvasor" type="Node3D" unique_id=271127357]
+[node name="MapacheInvasor" type="CharacterBody3D" unique_id=271127357]
+script = ExtResource("2_mapache_script")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=653767098]
 bones/0/name = "L_Thigh"
@@ -280,5 +267,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0ndj4")
 
 [node name="CollisionArea" type="Area3D" parent="." unique_id=1387004768]
 
-[node name="CollisionShape" type="CollisionShape3D" parent="CollisionArea" unique_id=667084551]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=667084551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
 shape = SubResource("CapsuleShape3D_d2xyw")
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=888888888]
+volume_db = 2.0
+max_distance = 15.0
