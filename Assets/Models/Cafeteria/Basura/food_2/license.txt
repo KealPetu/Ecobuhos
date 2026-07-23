@@ -1,0 +1,11 @@
+Model Information:
+* title:	Carrot - Vegetables
+* source:	https://sketchfab.com/3d-models/carrot-vegetables-50412b64aa20474b87e2ed690464cfea
+* author:	Šimon Ustal (https://sketchfab.com/simonustal)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Carrot - Vegetables" (https://sketchfab.com/3d-models/carrot-vegetables-50412b64aa20474b87e2ed690464cfea) by Šimon Ustal (https://sketchfab.com/simonustal) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
