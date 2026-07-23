@@ -4,6 +4,48 @@
 [ext_resource type="Texture2D" uid="uid://hqhg3boxavwk" path="res://Assets/Textures/owl_mascot_cropped.png" id="2_owl"]
 [ext_resource type="Texture2D" uid="uid://w61m5mbbb8xc" path="res://Assets/Textures/campus_map.png" id="3_map"]
 
+[sub_resource type="StyleBoxFlat" id="TitleBarStyle"]
+bg_color = Color(0, 0.2, 0.4, 1)
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+
+[sub_resource type="StyleBoxFlat" id="BtnNormal"]
+bg_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnPressed"]
+bg_color = Color(0.55, 0.45, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnHover"]
+bg_color = Color(0.87, 0.75, 0.42, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[sub_resource type="StyleBoxFlat" id="InfoPanelStyle"]
+bg_color = Color(0.039, 0.059, 0.176, 0.95)
+border_width_top = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="BtnDisabled"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="GlowStyle"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 4
@@ -30,8 +72,6 @@ corner_radius_bottom_left = 48
 shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 4
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
 
 [sub_resource type="StyleBoxFlat" id="Pin_sistemas"]
 bg_color = Color(0.227, 0.227, 0.29, 1)
@@ -93,66 +133,209 @@ shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 4
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxFlat" id="TitleBarStyle"]
-bg_color = Color(0, 0.2, 0.4, 1)
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 1)
-
-[sub_resource type="StyleBoxFlat" id="BtnNormal"]
-bg_color = Color(0.784, 0.647, 0.278, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="BtnPressed"]
-bg_color = Color(0.55, 0.45, 0.18, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="BtnHover"]
-bg_color = Color(0.87, 0.75, 0.42, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="InfoPanelStyle"]
-bg_color = Color(0.039, 0.059, 0.176, 0.95)
-border_width_top = 3
-border_color = Color(0.784, 0.647, 0.278, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-
-[sub_resource type="StyleBoxFlat" id="BtnDisabled"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[node name="LevelSelect" type="Node2D" unique_id=106473293]
+[node name="LevelSelect" type="Control" unique_id=1685965128]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_script")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1935918219]
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_map")
-expand_mode = 1
-stretch_mode = 6
 
-[node name="Paths" type="Node2D" parent="." unique_id=1027234801]
+[node name="TitleBar" type="Panel" parent="." unique_id=238185554]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("TitleBarStyle")
 
-[node name="LevelNodes" type="Node2D" parent="." unique_id=296671122]
+[node name="TitleLabel" type="Label" parent="TitleBar" unique_id=1596853568]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -31.0
+offset_right = 640.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.706)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "ECOBUHOS  |  CAMPUS EPN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetProgressBtn" type="Button" parent="TitleBar" unique_id=2110000001]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -19.0
+offset_right = 261.99997
+offset_bottom = 19.0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = "♻ REINICIAR PROGRESO"
+
+[node name="RankBtn" type="Button" parent="TitleBar" unique_id=1616944350]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -19.0
+offset_right = -219.99976
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = "🏆 RANKING EPN"
+
+[node name="QuitBtn" type="Button" parent="TitleBar" unique_id=2040491807]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -19.0
+offset_right = -40.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = "❌ SALIR"
+
+[node name="InfoPanel" type="Panel" parent="." unique_id=450693264]
+custom_minimum_size = Vector2(560, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -180.0
+offset_right = 280.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("InfoPanelStyle")
+
+[node name="LvNameLabel" type="Label" parent="InfoPanel" unique_id=427521722]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 560.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
+theme_override_font_sizes/font_size = 22
+text = "1.  Facultad de Mecanica"
+horizontal_alignment = 1
+
+[node name="LvDescLabel" type="Label" parent="InfoPanel" unique_id=1812643216]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 550.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.8, 0.867, 0.941, 1)
+theme_override_font_sizes/font_size = 13
+text = "Domina el mundo de engranajes, maquinas e ingenieria industrial de la EPN."
+horizontal_alignment = 1
+
+[node name="EnterBtn" type="Button" parent="InfoPanel" unique_id=776360435]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 100.0
+offset_right = 390.0
+offset_bottom = 146.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("BtnNormal")
+theme_override_styles/pressed = SubResource("BtnPressed")
+theme_override_styles/hover = SubResource("BtnHover")
+theme_override_styles/disabled = SubResource("BtnDisabled")
+theme_override_styles/focus = SubResource("EmptyStyle")
+text = ">> ENTRAR"
+
+[node name="HintLabel" type="Label" parent="." unique_id=969186681]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.11111704, 0.11073386, 0.148689, 1)
+theme_override_font_sizes/font_size = 11
+text = "< > Navegar   |   Enter o Clic para entrar"
+horizontal_alignment = 1
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=112790102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="LevelNodes" type="Control" parent="." unique_id=1302992882]
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelNode_mecanica" type="Control" parent="LevelNodes" unique_id=636291134]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 200.0
 offset_top = 395.0
-offset_right = 296.0
+offset_right = 295.9999
 offset_bottom = 491.0
 pivot_offset = Vector2(48, 48)
 
@@ -219,7 +402,6 @@ theme_override_styles/disabled = SubResource("EmptyStyle")
 theme_override_styles/focus = SubResource("EmptyStyle")
 
 [node name="LevelNode_sistemas" type="Control" parent="LevelNodes" unique_id=451771925]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 394.0
 offset_top = 187.0
@@ -289,7 +471,6 @@ theme_override_styles/disabled = SubResource("EmptyStyle")
 theme_override_styles/focus = SubResource("EmptyStyle")
 
 [node name="LevelNode_quimica" type="Control" parent="LevelNodes" unique_id=399731494]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 773.0
 offset_top = 230.0
@@ -359,7 +540,6 @@ theme_override_styles/disabled = SubResource("EmptyStyle")
 theme_override_styles/focus = SubResource("EmptyStyle")
 
 [node name="LevelNode_comedor" type="Control" parent="LevelNodes" unique_id=1351296228]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 695.0
 offset_top = 392.0
@@ -429,7 +609,6 @@ theme_override_styles/disabled = SubResource("EmptyStyle")
 theme_override_styles/focus = SubResource("EmptyStyle")
 
 [node name="LevelNode_agroindustria" type="Control" parent="LevelNodes" unique_id=744117583]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 980.0
 offset_top = 65.0
@@ -498,151 +677,18 @@ theme_override_styles/hover = SubResource("EmptyStyle")
 theme_override_styles/disabled = SubResource("EmptyStyle")
 theme_override_styles/focus = SubResource("EmptyStyle")
 
+[node name="ResetProgressDialog" type="ConfirmationDialog" parent="." unique_id=2110000002]
+oversampling_override = 1.0
+title = "Reiniciar progreso"
+size = Vector2i(787, 100)
+dialog_text = "Esto borrará el nivel más alto desbloqueado y volverá a bloquear los niveles avanzados. ¿Continuar?"
+
+[node name="Paths" type="Node2D" parent="." unique_id=1027234801]
+
 [node name="PlayerMarker" type="Node2D" parent="." unique_id=919458608]
 position = Vector2(200, 680)
-
-[node name="Shadow" type="Polygon2D" parent="PlayerMarker" unique_id=561196644]
-color = Color(0, 0, 0, 0.38)
-polygon = PackedVector2Array(18, 0, 17.119, 1.545, 14.562, 2.939, 10.58, 4.045, 5.562, 4.755, 0, 5, -5.562, 4.755, -10.58, 4.045, -14.562, 2.939, -17.119, 1.545, -18, 0, -17.119, -1.545, -14.562, -2.939, -10.58, -4.045, -5.562, -4.755, 0, -5, 5.562, -4.755, 10.58, -4.045, 14.562, -2.939, 17.119, -1.545)
 
 [node name="OwlSprite" type="Sprite2D" parent="PlayerMarker" unique_id=1388314796]
 position = Vector2(0, -38)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_owl")
-
-[node name="UI" type="CanvasLayer" parent="." unique_id=1312410830]
-layer = 10
-
-[node name="TitleBar" type="Panel" parent="UI" unique_id=238185554]
-offset_right = 1280.0
-offset_bottom = 62.0
-theme_override_styles/panel = SubResource("TitleBarStyle")
-
-[node name="TitleLabel" type="Label" parent="UI/TitleBar" unique_id=1596853568]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 62.0
-theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.706)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 24
-text = "ECOBUHOS  |  CAMPUS EPN"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RankBtn" type="Button" parent="UI/TitleBar" unique_id=1616944350]
-layout_mode = 0
-offset_left = 940.0
-offset_top = 12.0
-offset_right = 1100.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "🏆 RANKING EPN"
-
-[node name="QuitBtn" type="Button" parent="UI/TitleBar" unique_id=2040491807]
-layout_mode = 0
-offset_left = 1120.0
-offset_top = 12.0
-offset_right = 1260.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "❌ SALIR"
-
-[node name="ResetProgressBtn" type="Button" parent="UI/TitleBar" unique_id=2110000001]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 12.0
-offset_right = 230.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "♻ REINICIAR PROGRESO"
-
-[node name="InfoPanel" type="Panel" parent="UI" unique_id=450693264]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -154.0
-offset_right = 280.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("InfoPanelStyle")
-
-[node name="LvNameLabel" type="Label" parent="UI/InfoPanel" unique_id=427521722]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 560.0
-offset_bottom = 46.0
-theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
-theme_override_font_sizes/font_size = 22
-text = "1.  Facultad de Mecanica"
-horizontal_alignment = 1
-
-[node name="LvDescLabel" type="Label" parent="UI/InfoPanel" unique_id=1812643216]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 50.0
-offset_right = 550.0
-offset_bottom = 95.0
-theme_override_colors/font_color = Color(0.8, 0.867, 0.941, 1)
-theme_override_font_sizes/font_size = 13
-text = "Domina el mundo de engranajes, maquinas e ingenieria industrial de la EPN."
-horizontal_alignment = 1
-
-[node name="EnterBtn" type="Button" parent="UI/InfoPanel" unique_id=776360435]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 100.0
-offset_right = 390.0
-offset_bottom = 146.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/disabled = SubResource("BtnDisabled")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = ">> ENTRAR"
-
-[node name="HintLabel" type="Label" parent="UI" unique_id=969186681]
-offset_top = 700.0
-offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_colors/font_color = Color(0.549, 0.549, 0.647, 1)
-theme_override_font_sizes/font_size = 11
-text = "< > Navegar   |   Enter o Clic para entrar"
-horizontal_alignment = 1
-
-[node name="FadeOverlay" type="ColorRect" parent="UI" unique_id=112790102]
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
-[node name="ResetProgressDialog" type="ConfirmationDialog" parent="UI" unique_id=2110000002]
-title = "Reiniciar progreso"
-dialog_text = "Esto borrará el nivel más alto desbloqueado y volverá a bloquear los niveles avanzados. ¿Continuar?"

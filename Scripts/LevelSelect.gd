@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 # =====================================================================
 # EcoBuhos - LevelSelect.gd
@@ -51,19 +51,19 @@ const LEVELS: Array = [
 
 const PATHS: Array = [[0, 1], [1, 2], [2, 3], [3, 4]]
 
-# --- Referencias a nodos (definidos en la escena) ---
+# --- Referencias a nodos ---
 @onready var _background:    TextureRect = $Background
 @onready var _paths_node:    Node2D      = $Paths
-@onready var _level_parent:  Node2D      = $LevelNodes
+@onready var _level_parent:  Control     = $LevelNodes
 @onready var _player:        Node2D      = $PlayerMarker
 @onready var _owl_sprite:    Sprite2D    = $PlayerMarker/OwlSprite
-@onready var _fade:          ColorRect   = $UI/FadeOverlay
-@onready var _info_panel:    Panel       = $UI/InfoPanel
-@onready var _name_label:    Label       = $UI/InfoPanel/LvNameLabel
-@onready var _desc_label:    Label       = $UI/InfoPanel/LvDescLabel
-@onready var _enter_btn:     Button      = $UI/InfoPanel/EnterBtn
-@onready var _reset_btn:     Button      = $UI/TitleBar/ResetProgressBtn if has_node("UI/TitleBar/ResetProgressBtn") else null
-@onready var _reset_dialog:  ConfirmationDialog = $UI/ResetProgressDialog if has_node("UI/ResetProgressDialog") else null
+@onready var _fade:          ColorRect   = $FadeOverlay
+@onready var _info_panel:    Panel       = $InfoPanel
+@onready var _name_label:    Label       = $InfoPanel/LvNameLabel
+@onready var _desc_label:    Label       = $InfoPanel/LvDescLabel
+@onready var _enter_btn:     Button      = $InfoPanel/EnterBtn
+@onready var _reset_btn:     Button      = $TitleBar/ResetProgressBtn
+@onready var _reset_dialog:  ConfirmationDialog = $ResetProgressDialog
 
 # --- Estado ---
 var _level_nodes:   Array[Control] = []
@@ -115,20 +115,19 @@ func _ready() -> void:
 
 	# Boton ENTRAR
 	_enter_btn.pressed.connect(_on_enter_pressed)
-	if _reset_btn:
-		_reset_btn.pressed.connect(_confirm_reset_progress)
-	if _reset_dialog:
-		_reset_dialog.confirmed.connect(_reset_progress_and_refresh)
+	_reset_btn.pressed.connect(_confirm_reset_progress)
+	_reset_dialog.confirmed.connect(_reset_progress_and_refresh)
 
 	# Boton SALIR DEL JUEGO
-	var quit_btn: Button = get_node_or_null("UI/TitleBar/QuitBtn") as Button
+	var quit_btn: Button = $TitleBar/QuitBtn
 	if quit_btn:
-		quit_btn.pressed.connect(func() -> void:
-			get_tree().quit()
+		quit_btn.pressed.connect(
+			func() -> void:
+				get_tree().quit()
 		)
 
 	# Boton RANKING / LEADERBOARD
-	var rank_btn: Button = get_node_or_null("UI/TitleBar/RankBtn") as Button
+	var rank_btn: Button = $TitleBar/RankBtn
 	if rank_btn:
 		rank_btn.pressed.connect(_show_leaderboard_popup)
 
@@ -192,11 +191,11 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if _transitioning:
 		return
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("left"):
 		_navigate(-1)
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("right"):
 		_navigate(1)
-	elif event.is_action_pressed("ui_accept"):
+	elif event.is_action_pressed("jump"):
 		_try_enter(_selected)
 
 
@@ -371,14 +370,6 @@ func _load_tex(res_path: String) -> Texture2D:
 
 
 func _show_leaderboard_popup() -> void:
-	var ui: Node = get_node_or_null("UI")
-	if not ui:
-		return
-
-	var existing = ui.get_node_or_null("LeaderboardOverlay")
-	if existing:
-		existing.queue_free()
-
 	var overlay = ColorRect.new()
 	overlay.name = "LeaderboardOverlay"
 	overlay.color = Color(0, 0, 0, 0.75)
@@ -456,4 +447,4 @@ func _show_leaderboard_popup() -> void:
 
 	panel.add_child(vbox)
 	overlay.add_child(panel)
-	ui.add_child(overlay)
+	add_child(overlay)
