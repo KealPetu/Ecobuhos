@@ -254,6 +254,7 @@ accepts_type = "paper"
 
 [node name="WasteItem" parent="Residuos" unique_id=583767682 instance=ExtResource("7_u471p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0005865, 0.28312975, -8.133911)
+waste_type = "electronic"
 
 [node name="WasteItem2" parent="Residuos" unique_id=226203172 instance=ExtResource("7_u471p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.203937, 0.28312975, 7.673452)

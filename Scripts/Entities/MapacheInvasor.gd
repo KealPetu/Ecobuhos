@@ -4,12 +4,15 @@ extends CharacterBody3D
 ## Antagonista: El Desordenador (Mapache Invasor)
 ## Se activa cuando el jugador comete errores o desde el inicio para probar la mecanica.
 
-@export var move_speed: float = 2.5
+@export var movement_component: MovementComponent
+@export var animation_player: AnimationPlayer
 @export var waste_prefab: PackedScene
 @export var throw_sound: AudioStream
 @export var max_trash_per_activation: int = 5
 
 var is_active: bool = false
+var _is_defeated: bool = false
+var _player_in_range: bool = false
 var _target_pos: Vector3 = Vector3.ZERO
 var _wander_timer: float = 0.0
 var _throw_timer: float = 0.0
@@ -17,13 +20,24 @@ var _spawned_trash_this_activation: int = 0
 
 @onready var label: Label3D = $Label3D if has_node("Label3D") else null
 @onready var sfx: AudioStreamPlayer3D = $SfxPlayer if has_node("SfxPlayer") else null
-@onready var collision_area: Area3D = $CollisionArea if has_node("CollisionArea") else null
-@onready var collision_shape: CollisionShape3D = $CollisionArea/CollisionShape if has_node("CollisionArea/CollisionShape") else null
+@onready var interaction_area: Area3D = $InteractionArea if has_node("InteractionArea") else null
 
 func _ready() -> void:
 	add_to_group("mapache")
 	# Escala removida de aquí para no romper las físicas de CharacterBody3D
-	
+
+	if not movement_component:
+		push_warning("MapacheInvasor: 'movement_component' no está asignado en el inspector. El mapache no podrá moverse.")
+
+	if interaction_area:
+		interaction_area.body_entered.connect(_on_interaction_area_body_entered)
+		interaction_area.body_exited.connect(_on_interaction_area_body_exited)
+	else:
+		push_warning("MapacheInvasor: no se encontró el nodo 'InteractionArea'. No se podrá derribar al mapache.")
+
+	if animation_player:
+		animation_player.animation_finished.connect(_on_animation_finished)
+
 	if GameManager:
 		GameManager.mapache_activated.connect(_on_mapache_activated)
 	
@@ -54,10 +68,12 @@ func _get_player_node() -> Node3D:
 func _on_mapache_activated(spawn_position: Vector3 = Vector3.ZERO) -> void:
 	if is_active: return
 	is_active = true
+	_is_defeated = false
 	visible = true
-	_set_hitbox_hidden(false)
 	_spawned_trash_this_activation = 0
 	_throw_timer = 0.0
+	if animation_player:
+		animation_player.play("chaos")
 	if GameManager:
 		GameManager.error_count = 0
 	_update_label(true)
@@ -86,6 +102,14 @@ func _physics_process(delta: float) -> void:
 	if not is_active:
 		return
 
+	if _is_defeated:
+		# Detenido mientras se reproduce la animación "defeated"; no camina ni tira basura.
+		if movement_component:
+			movement_component.apply_gravity(self, delta)
+			movement_component.apply_horizontal_movement(self, Vector3.ZERO)
+			move_and_slide()
+		return
+
 	_wander_timer -= delta
 	if _wander_timer <= 0:
 		_pick_new_wander_target()
@@ -99,20 +123,53 @@ func _physics_process(delta: float) -> void:
 			return
 		_throw_timer = randf_range(2.5, 4.0)
 
-	velocity.y = 0
+	if not movement_component:
+		return
+
+	movement_component.apply_gravity(self, delta)
 
 	var dir: Vector3 = (_target_pos - global_position)
 	dir.y = 0
 	if dir.length() > 0.5:
 		dir = dir.normalized()
-		velocity.x = dir.x * move_speed
-		velocity.z = dir.z * move_speed
-		look_at(Vector3(_target_pos.x, global_position.y, _target_pos.z), Vector3.UP)
+		movement_component.apply_horizontal_movement(self, dir)
+		movement_component.rotate_towards(self, dir, delta)
 	else:
-		velocity.x = 0
-		velocity.z = 0
+		movement_component.apply_horizontal_movement(self, Vector3.ZERO)
 
 	move_and_slide()
+
+func _on_interaction_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		_player_in_range = true
+
+func _on_interaction_area_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		_player_in_range = false
+
+## Llamado desde InteractionComponent cuando el jugador presiona "interact".
+## Devuelve true si el mapache fue derribado en este intento.
+func try_defeat() -> bool:
+	if not is_active or _is_defeated or not _player_in_range:
+		return false
+
+	_is_defeated = true
+	velocity = Vector3.ZERO
+	_update_label(false)
+	if label:
+		label.visible = false
+
+	if animation_player and animation_player.has_animation("defeated"):
+		animation_player.play("defeated")
+	else:
+		# Sin animación disponible, ocultarlo directamente.
+		_hide_and_wait()
+
+	return true
+
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "defeated":
+		_hide_and_wait()
 
 func _pick_new_wander_target() -> void:
 	_wander_timer = randf_range(2.0, 4.0)
@@ -148,27 +205,15 @@ func _spawn_extra_trash() -> void:
 
 func _hide_and_wait() -> void:
 	is_active = false
+	_is_defeated = false
+	_player_in_range = false
 	visible = false
-	_set_hitbox_hidden(true)
 	_throw_timer = 0.0
 	_wander_timer = 0.0
 	velocity = Vector3.ZERO
 	_update_label(false)
 	if label:
 		label.visible = false
-
-func _set_hitbox_hidden(hidden: bool) -> void:
-	if collision_area:
-		if hidden:
-			collision_area.global_position = Vector3(0, 20, 0)
-			collision_area.monitoring = false
-			collision_area.monitorable = false
-		else:
-			collision_area.monitoring = true
-			collision_area.monitorable = true
-			collision_area.global_position = global_position
-	if collision_shape:
-		collision_shape.disabled = hidden
 
 func _update_label(active: bool) -> void:
 	if not label:
@@ -181,9 +226,6 @@ func _update_label(active: bool) -> void:
 		label.outline_modulate = Color(0, 0, 0)
 		label.position = Vector3(0, 1.8, 0)
 		add_child(label)
-		
-	if has_node("DebugBox"):
-		get_node("DebugBox").visible = active
 
 	if active:
 		label.text = "🦝 ¡EL DESORDENADOR ATACA!"

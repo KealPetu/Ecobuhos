@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 ## HUD overlay showing score, combo, time, inventory, level objectives, and win/loss feedback modals
 
