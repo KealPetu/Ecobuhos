@@ -1,9 +1,7 @@
 [gd_scene format=4 uid="uid://dlqa2di4kfc13"]
 
 [ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="4_3aith"]
-[ext_resource type="Script" uid="uid://do8ouyhr268y7" path="res://Scripts/Entities/RecyclingBin.gd" id="5_g8or2"]
 [ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="10_tre1y"]
-[ext_resource type="PackedScene" uid="uid://btff3cfeiut2w" path="res://Scenes/Prefabs/RecyclingBin.tscn" id="11_x2fms"]
 [ext_resource type="PackedScene" uid="uid://bwaste001item" path="res://Scenes/Prefabs/WasteItem.tscn" id="12_miump"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2van"]
@@ -9919,7 +9917,6 @@ mesh = SubResource("ArrayMesh_jdbxk")
 
 [node name="RecyclingBin3" type="StaticBody3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode" unique_id=10025943]
 transform = Transform3D(29.999998, 0, 0, 0, 29.999998, -1.311337e-06, 0, 1.311337e-06, 29.999998, -34.275715, -40.07916, -89.49556)
-script = ExtResource("5_g8or2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin3" unique_id=1151439001]
 transform = Transform3D(1, 0, 0, 0, 1, -2.7105054e-20, 0, 2.7105054e-20, 1, -4.246186, 0.6, -2.2068992)
@@ -9953,7 +9950,6 @@ shape = SubResource("SphereShape3D_area")
 
 [node name="RecyclingBin" type="StaticBody3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode" unique_id=1874001167]
 transform = Transform3D(29.999998, 0, 0, 0, 29.999998, -1.3113363e-06, 0, 1.3113363e-06, 29.999998, -32.271896, -40.07917, 226.37434)
-script = ExtResource("5_g8or2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin" unique_id=739160464]
 transform = Transform3D(1, 0, 0, 0, 1, -2.7105054e-20, 0, 2.7105054e-20, 1, -4.246186, 0.6, -2.2068987)
@@ -9987,7 +9983,6 @@ shape = SubResource("SphereShape3D_area")
 
 [node name="RecyclingBin2" type="StaticBody3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode" unique_id=2005878791]
 transform = Transform3D(29.999998, 0, 0, 0, 29.999998, -1.3113381e-06, 0, 1.3113381e-06, 29.999998, 287.98557, -40.0792, 225.25375)
-script = ExtResource("5_g8or2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2" unique_id=1603047813]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.246185, 0.6, -2.2068987)
@@ -10019,24 +10014,8 @@ outline_size = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.246185, 0.6, -2.2068987)
 shape = SubResource("SphereShape3D_area")
 
-[node name="RecyclingBin2" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2" unique_id=465193886 instance=ExtResource("11_x2fms")]
-transform = Transform3D(29.999998, 0, 0, 0, 29.999998, -1.3113381e-06, 0, 1.3113381e-06, 29.999998, 287.98557, -40.0792, 225.25375)
-
-[node name="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2/RecyclingBin2" index="0"]
-shape = SubResource("CylinderShape3D_bin")
-
-[node name="MeshInstance3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2/RecyclingBin2" index="1"]
-material = SubResource("StandardMaterial3D_q7pw5")
-
-[node name="Label3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2/RecyclingBin2" index="2"]
-text = "DESECHOS PELIGROSOS"
-
-[node name="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2/RecyclingBin2/InteractionArea" index="0"]
-shape = SubResource("SphereShape3D_area")
-
 [node name="RecyclingBin4" type="StaticBody3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode" unique_id=1596391344]
 transform = Transform3D(29.999998, 0, 0, 0, 29.999998, -1.3113375e-06, 0, 1.3113375e-06, 29.999998, 287.52917, -40.07919, -88.28411)
-script = ExtResource("5_g8or2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin4" unique_id=1922768139]
 transform = Transform3D(1, 0, 0, 0, 1, -1.3552527e-20, 0, 1.3552527e-20, 1, -4.246186, 0.6, -2.2068987)
@@ -10123,5 +10102,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5271258, 1.3402948, -2.529
 light_color = Color(0.65344447, 0.7218613, 1, 1)
 light_bake_mode = 1
 omni_range = 15.0
-
-[editable path="Laboratorio/6a2632b9b6cc4d70b6513b0dbc92b09a_fbx/Object_2/RootNode/RecyclingBin2/RecyclingBin2"]
