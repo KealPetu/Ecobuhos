@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dys6kwfxj74iu"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://c5qknlghiug5g" path="res://Assets/Textures/texture-floor-tiles.jpg" id="1_b56eh"]
 [ext_resource type="PackedScene" uid="uid://dnf0j3klnnojo" path="res://Assets/Models/whiteboard_low_poly.glb" id="2_qwtt3"]
 [ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="3_rhsa1"]
@@ -169,6 +170,141 @@ light_color = Color(0.65344447, 0.7218613, 1, 1)
 light_bake_mode = 1
 omni_range = 15.0
 =======
+=======
+[ext_resource type="Script" uid="uid://dbygin2wcaxsq" path="res://Scripts/LevelSelect.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://hqhg3boxavwk" path="res://Assets/Textures/owl_mascot_cropped.png" id="2_owl"]
+[ext_resource type="Texture2D" uid="uid://w61m5mbbb8xc" path="res://Assets/Textures/campus_map.png" id="3_map"]
+
+[sub_resource type="StyleBoxFlat" id="TitleBarStyle"]
+bg_color = Color(0, 0.2, 0.4, 1)
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+
+[sub_resource type="StyleBoxFlat" id="BtnNormal"]
+bg_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnPressed"]
+bg_color = Color(0.55, 0.45, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="BtnHover"]
+bg_color = Color(0.87, 0.75, 0.42, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[sub_resource type="StyleBoxFlat" id="InfoPanelStyle"]
+bg_color = Color(0.039, 0.059, 0.176, 0.95)
+border_width_top = 3
+border_color = Color(0.784, 0.647, 0.278, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="BtnDisabled"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="GlowStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 56
+corner_radius_top_right = 56
+corner_radius_bottom_right = 56
+corner_radius_bottom_left = 56
+
+[sub_resource type="StyleBoxFlat" id="Pin_mecanica"]
+bg_color = Color(0.902, 0.494, 0.133, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_sistemas"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_quimica"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_comedor"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="Pin_agroindustria"]
+bg_color = Color(0.227, 0.227, 0.29, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.784, 0.647, 0.278, 0.9)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+>>>>>>> origin/develop
 [node name="LevelSelect" type="Control" unique_id=1685965128]
 layout_mode = 3
 anchors_preset = 15
@@ -374,6 +510,7 @@ offset_top = 395.0
 offset_right = 295.9999
 offset_bottom = 491.0
 pivot_offset = Vector2(48, 48)
+<<<<<<< HEAD
 >>>>>>> develop
 
 [node name="Mesas" type="MultiMeshInstance3D" parent="." unique_id=1846601748]
@@ -420,6 +557,71 @@ transform = Transform3D(1.3310001, 0, 0, 0, 1.3310001, 0, 0, 0, 1.3310001, -1.5,
 [node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 3" unique_id=894889810]
 transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.0545692, 0.47876167, 0.4946761)
 =======
+=======
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=543096518]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=524158650]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_mecanica")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_mecanica/PinCircle" unique_id=1643244573]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "⚙"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1030641716]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1147100287]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Mecanica"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_mecanica" unique_id=955886659]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+>>>>>>> origin/develop
 [node name="LevelNode_sistemas" type="Control" parent="LevelNodes" unique_id=451771925]
 anchors_preset = 0
 offset_left = 394.0
@@ -427,6 +629,7 @@ offset_top = 187.0
 offset_right = 490.0
 offset_bottom = 283.0
 pivot_offset = Vector2(48, 48)
+<<<<<<< HEAD
 >>>>>>> develop
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 3/Area3D" unique_id=1065442467]
@@ -451,6 +654,59 @@ shape = SubResource("BoxShape3D_uydyw")
 <<<<<<< HEAD
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 4/Area3D" unique_id=1040913529]
 =======
+=======
+
+[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=2042443686]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=95447173]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_sistemas")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_sistemas/PinCircle" unique_id=1433329271]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "💻"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=1505095877]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=600421971]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Sistemas"
+horizontal_alignment = 1
+
+>>>>>>> origin/develop
 [node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_sistemas" unique_id=2051944947]
 layout_mode = 0
 offset_right = 96.0
@@ -471,6 +727,7 @@ offset_bottom = 326.0
 pivot_offset = Vector2(48, 48)
 
 [node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=785723755]
+<<<<<<< HEAD
 >>>>>>> develop
 visible = false
 mesh = SubResource("BoxMesh_uixqs")
@@ -490,6 +747,57 @@ shape = SubResource("BoxShape3D_uydyw")
 <<<<<<< HEAD
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 5/Area3D" unique_id=374931901]
 =======
+=======
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=119552162]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_quimica")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_quimica/PinCircle" unique_id=922726218]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🧪"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=287020261]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=745100636]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Quimica"
+horizontal_alignment = 1
+
+>>>>>>> origin/develop
 [node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_quimica" unique_id=599294814]
 layout_mode = 0
 offset_right = 96.0
@@ -510,6 +818,7 @@ offset_bottom = 488.0
 pivot_offset = Vector2(48, 48)
 
 [node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1175396963]
+<<<<<<< HEAD
 >>>>>>> develop
 visible = false
 mesh = SubResource("BoxMesh_uixqs")
@@ -529,6 +838,57 @@ shape = SubResource("BoxShape3D_uydyw")
 <<<<<<< HEAD
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 6/Area3D" unique_id=1915682008]
 =======
+=======
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1916073128]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_comedor")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_comedor/PinCircle" unique_id=1904542985]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🍽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=1083481775]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=322403864]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "Comedor EPN"
+horizontal_alignment = 1
+
+>>>>>>> origin/develop
 [node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_comedor" unique_id=1156076941]
 layout_mode = 0
 offset_right = 96.0
@@ -549,6 +909,7 @@ offset_bottom = 161.0
 pivot_offset = Vector2(48, 48)
 
 [node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=2107117404]
+<<<<<<< HEAD
 >>>>>>> develop
 visible = false
 mesh = SubResource("BoxMesh_uixqs")
@@ -637,6 +998,68 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.405598, 0.28312975, -3.1631
 
 [node name="HUD" parent="." unique_id=494020750 instance=ExtResource("8_hryoq")]
 =======
+=======
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("GlowStyle")
+
+[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=946623239]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Pin_agroindustria")
+
+[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria/PinCircle" unique_id=337615642]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
+theme_override_font_sizes/font_size = 36
+text = "🌾"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=458909754]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 22
+text = "🔒"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=944327505]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 128.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "F. Agroindustria"
+horizontal_alignment = 1
+
+[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_agroindustria" unique_id=1334227105]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("EmptyStyle")
+theme_override_styles/pressed = SubResource("EmptyStyle")
+theme_override_styles/hover = SubResource("EmptyStyle")
+theme_override_styles/disabled = SubResource("EmptyStyle")
+theme_override_styles/focus = SubResource("EmptyStyle")
+
+>>>>>>> origin/develop
 [node name="ResetProgressDialog" type="ConfirmationDialog" parent="." unique_id=2110000002]
 oversampling_override = 1.0
 title = "Reiniciar progreso"
@@ -652,4 +1075,7 @@ position = Vector2(200, 680)
 position = Vector2(0, -38)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_owl")
+<<<<<<< HEAD
 >>>>>>> develop
+=======
+>>>>>>> origin/develop

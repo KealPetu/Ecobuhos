@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq7hirxty4rgg"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://c5qknlghiug5g" path="res://Assets/Textures/texture-floor-tiles.jpg" id="1_7x4ee"]
 [ext_resource type="PackedScene" uid="uid://dnf0j3klnnojo" path="res://Assets/Models/whiteboard_low_poly.glb" id="2_b5yin"]
 [ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="3_m1dr3"]
@@ -277,6 +278,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.405598, 0.28312975, -3.1631
 
 [node name="HUD" parent="." unique_id=494020750 instance=ExtResource("3_m1dr3")]
 =======
+=======
+>>>>>>> origin/develop
 [ext_resource type="PackedScene" uid="uid://bgegeycjlvyw5" path="res://Assets/Models/Cafeteria/Escenario/cafetery/scene.gltf" id="1_8pso5"]
 [ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="3_m1dr3"]
 [ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="4_1wj7b"]
@@ -640,4 +643,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7978287, -2.4952953, -0.07
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7218298, -2.1952949, 1.3402532)
 
 [editable path="Sketchfab_Scene"]
+<<<<<<< HEAD
 >>>>>>> develop
+=======
+>>>>>>> origin/develop
