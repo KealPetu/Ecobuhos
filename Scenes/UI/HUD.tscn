@@ -148,7 +148,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 0.9)
 theme_override_font_sizes/font_size = 13
-text = "WASD: Moverse  |  Click Derecho: Interactuar (Recoger Basura, Dejarla en el Tacho y  Derrotar al Mapache Invasor)"
+text = "WASD: Moverse  |  Teclas [E], [Espacio] o [Enter]: Recoger Basura o Depositar en Tacho"
 horizontal_alignment = 1
 
 [node name="VictoryModal" type="PanelContainer" parent="." unique_id=1484885454]

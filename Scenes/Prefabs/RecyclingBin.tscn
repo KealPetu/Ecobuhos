@@ -1,33 +1,48 @@
-[gd_scene format=3 uid="uid://btff3cfeiut2w"]
+[gd_scene load_steps=5 format=3 uid="uid://bbin001recycling"]
 
-[ext_resource type="Script" uid="uid://do8ouyhr268y7" path="res://Scripts/Entities/RecyclingBin.gd" id="1_bin_script"]
+[ext_resource type="Script" path="res://Scripts/Entities/RecyclingBin.gd" id="1_bin_script"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bin"]
 height = 1.2
+radius = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_area"]
 radius = 2.2
 
-[node name="RecyclingBin" type="StaticBody3D" unique_id=934465450]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bin"]
+albedo_color = Color(0.153, 0.682, 0.376, 1.0)
+roughness = 0.4
+
+[node name="RecyclingBin" type="StaticBody3D"]
 script = ExtResource("1_bin_script")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1229774202]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CylinderShape3D_bin")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1514291726]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2579873, 0)
+[node name="MeshInstance3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.5
+height = 1.2
+sides = 16
+material = SubResource("StandardMaterial3D_bin")
+
+[node name="Lid" type="CSGCylinder3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+radius = 0.55
+height = 0.1
+sides = 16
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 billboard = 1
 double_sided = false
 text = "ORGANICO"
-font_size = 25
+font_size = 36
 outline_size = 8
 
-[node name="InteractionArea" type="Area3D" parent="." unique_id=2083741241]
+[node name="InteractionArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=471038915]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("SphereShape3D_area")
-
-[node name="ModelHolder" type="Node3D" parent="." unique_id=1321247175]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30675173, 0)
