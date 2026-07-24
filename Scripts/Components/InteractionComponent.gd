@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_echo():
 		return
-	
+
 	if input.is_interact_pressed():
 		_cooldown_timer = 0.25 # 250ms debouncing
 		get_viewport().set_input_as_handled()
@@ -78,7 +78,15 @@ func try_interact() -> void:
 	var p_pos: Vector3 = player.global_position
 	print("[INTERACTION] Intento de interaccion desde posicion: ", p_pos)
 
-	# 1. Si estamos cerca de un tacho y tenemos basura en la mochila -> depositar
+	# 1. Si el mapache está dentro de su área de interacción -> derribarlo
+	var nearby_mapache: MapacheInvasor = _find_defeatable_mapache()
+	if nearby_mapache:
+		if nearby_mapache.try_defeat():
+			print("[INTERACTION] Mapache derribado")
+			interaction_attempted.emit(true, "Mapache derribado")
+			return
+
+	# 2. Si estamos cerca de un tacho y tenemos basura en la mochila -> depositar
 	if inventory and inventory.get_count() > 0:
 		var nearest_bin: RecyclingBin = _find_nearest_bin(p_pos)
 		if nearest_bin:
@@ -91,7 +99,7 @@ func try_interact() -> void:
 		else:
 			print("[INTERACTION] Mochila tiene ", inventory.get_count(), " objetos pero no hay tacho dentro de ", reach_distance, "m")
 
-	# 2. Si estamos cerca de basura y tenemos espacio -> recoger 1 objeto
+	# 3. Si estamos cerca de basura y tenemos espacio -> recoger 1 objeto
 	if inventory and not inventory.is_full():
 		var nearest_waste: WasteItem = _find_nearest_waste(p_pos)
 		if nearest_waste:
@@ -108,6 +116,12 @@ func try_interact() -> void:
 			print("[INTERACTION] No hay basura cercana dentro de ", reach_distance, "m")
 
 	interaction_attempted.emit(false, "Nada cerca para interactuar")
+
+func _find_defeatable_mapache() -> MapacheInvasor:
+	for node in get_tree().get_nodes_in_group("mapache"):
+		if node is MapacheInvasor:
+			return node as MapacheInvasor
+	return null
 
 func _find_nearest_waste(from_pos: Vector3) -> WasteItem:
 	var waste_nodes = get_tree().get_nodes_in_group("waste_items")
