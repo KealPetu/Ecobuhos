@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://xl4p8ijk1fk7"]
+
+[ext_resource type="Script" uid="uid://d2gmqqpur6aug" path="res://Scripts/MainMenu/MainMenu.gd" id="1_g18y6"]
+
+[node name="MainMenu" type="Control" unique_id=508545990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g18y6")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1915792986]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=932111715]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1346025592]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/MenuContainer" unique_id=2000508506]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "EcoBúhos"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=474535836]
+layout_mode = 2
+text = "Jugar"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=1238170595]
+layout_mode = 2
+text = "Configuraciones"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=566698680]
+layout_mode = 2
+text = "Créditos"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=1422048629]
+layout_mode = 2
+text = "Salir"
+
+[node name="OnboardingPopup" type="ConfirmationDialog" parent="." unique_id=282046533]
+oversampling_override = 1.0
+title = "¡Bienvenido!"
+size = Vector2i(495, 80)
+ok_button_text = "Sí, enséñame"
+dialog_text = "¿Quieres aprender las mecánicas del juego antes de empezar?"
