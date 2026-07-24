@@ -7,9 +7,6 @@ path="res://.godot/imported/wrenches_3.png-42f304394dfaa7825716246164ee8a85.ctex
 metadata={
 "vram_texture": false
 }
-generator_parameters={
-"md5": "49f5c0eb8bb63213befaf79fd094ba1e"
-}
 
 [deps]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

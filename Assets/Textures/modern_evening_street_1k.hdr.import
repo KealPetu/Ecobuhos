@@ -3,20 +3,34 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ffpa57l7yff"
+<<<<<<< HEAD
+path="res://.godot/imported/modern_evening_street_1k.hdr-698915c0fc087bbdb0ff648843fc2949.ctex"
+metadata={
+"vram_texture": false
+=======
 path.bptc="res://.godot/imported/modern_evening_street_1k.hdr-698915c0fc087bbdb0ff648843fc2949.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+>>>>>>> origin/develop
 }
 
 [deps]
 
 source_file="res://Assets/Textures/modern_evening_street_1k.hdr"
+<<<<<<< HEAD
+dest_files=["res://.godot/imported/modern_evening_street_1k.hdr-698915c0fc087bbdb0ff648843fc2949.ctex"]
+
+[params]
+
+compress/mode=0
+=======
 dest_files=["res://.godot/imported/modern_evening_street_1k.hdr-698915c0fc087bbdb0ff648843fc2949.bptc.ctex"]
 
 [params]
 
 compress/mode=2
+>>>>>>> origin/develop
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +38,11 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
+<<<<<<< HEAD
+mipmaps/generate=false
+=======
 mipmaps/generate=true
+>>>>>>> origin/develop
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +56,8 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
+<<<<<<< HEAD
+detect_3d/compress_to=1
+=======
 detect_3d/compress_to=0
+>>>>>>> origin/develop
