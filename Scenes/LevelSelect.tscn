@@ -1,648 +1,277 @@
 [gd_scene format=3 uid="uid://dys6kwfxj74iu"]
 
-[ext_resource type="Script" uid="uid://dbygin2wcaxsq" path="res://Scripts/LevelSelect.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://hqhg3boxavwk" path="res://Assets/Textures/owl_mascot_cropped.png" id="2_owl"]
-[ext_resource type="Texture2D" uid="uid://w61m5mbbb8xc" path="res://Assets/Textures/campus_map.png" id="3_map"]
+[ext_resource type="Texture2D" uid="uid://c5qknlghiug5g" path="res://Assets/Textures/texture-floor-tiles.jpg" id="1_b56eh"]
+[ext_resource type="PackedScene" uid="uid://dnf0j3klnnojo" path="res://Assets/Models/whiteboard_low_poly.glb" id="2_qwtt3"]
+[ext_resource type="PackedScene" uid="uid://cd2bx8vonekqy" path="res://Scenes/Characters/Player.tscn" id="3_rhsa1"]
+[ext_resource type="PackedScene" uid="uid://boc837lvdkt7t" path="res://Assets/Models/labtable1.glb" id="4_pp72x"]
+[ext_resource type="PackedScene" uid="uid://c7wi4njundy84" path="res://Assets/Models/chair.glb" id="5_7eg28"]
+[ext_resource type="PackedScene" uid="uid://btff3cfeiut2w" path="res://Scenes/Prefabs/RecyclingBin.tscn" id="6_v7iwv"]
+[ext_resource type="PackedScene" uid="uid://bwaste001item" path="res://Scenes/Prefabs/WasteItem.tscn" id="7_anenh"]
+[ext_resource type="PackedScene" uid="uid://bhud001canvas" path="res://Scenes/UI/HUD.tscn" id="8_hryoq"]
 
-[sub_resource type="StyleBoxFlat" id="GlowStyle"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 56
-corner_radius_top_right = 56
-corner_radius_bottom_right = 56
-corner_radius_bottom_left = 56
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4ir4"]
+albedo_texture = ExtResource("1_b56eh")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar = true
 
-[sub_resource type="StyleBoxFlat" id="Pin_mecanica"]
-bg_color = Color(0.902, 0.494, 0.133, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 48
-corner_radius_top_right = 48
-corner_radius_bottom_right = 48
-corner_radius_bottom_left = 48
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_uydyw"]
 
-[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+[sub_resource type="BoxMesh" id="BoxMesh_uixqs"]
 
-[sub_resource type="StyleBoxFlat" id="Pin_sistemas"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 48
-corner_radius_top_right = 48
-corner_radius_bottom_right = 48
-corner_radius_bottom_left = 48
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[node name="Node3D" type="Node3D" unique_id=1150255005]
 
-[sub_resource type="StyleBoxFlat" id="Pin_quimica"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 48
-corner_radius_top_right = 48
-corner_radius_bottom_right = 48
-corner_radius_bottom_left = 48
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[node name="Estructura_Laboratorio" type="CSGBox3D" parent="." unique_id=1908089502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0037989616, 2.4831297, -0.034029484)
+use_collision = true
+flip_faces = true
+size = Vector3(20, 5, 20)
+material = SubResource("StandardMaterial3D_g4ir4")
 
-[sub_resource type="StyleBoxFlat" id="Pin_comedor"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 48
-corner_radius_top_right = 48
-corner_radius_bottom_right = 48
-corner_radius_bottom_left = 48
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[node name="Luz_Isla_Ecologica" type="SpotLight3D" parent="." unique_id=909197299]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 5, -9.9)
+light_color = Color(0.4482302, 0.99999994, 0.37208313, 1)
+light_energy = 10.0
+spot_range = 7.122119
+spot_angle = 41.593395
 
-[sub_resource type="StyleBoxFlat" id="Pin_agroindustria"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 0.9)
-corner_radius_top_left = 48
-corner_radius_top_right = 48
-corner_radius_bottom_right = 48
-corner_radius_bottom_left = 48
-shadow_color = Color(0, 0, 0, 0.4)
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[node name="Pizarra" parent="." unique_id=175063528 instance=ExtResource("2_qwtt3")]
+transform = Transform3D(-5, 0, 4.371139e-07, 0, 5, 0, -4.371139e-07, 0, -5, 0, 1, 9.8)
 
-[sub_resource type="StyleBoxFlat" id="TitleBarStyle"]
-bg_color = Color(0, 0.2, 0.4, 1)
-border_width_bottom = 3
-border_color = Color(0.784, 0.647, 0.278, 1)
+[node name="Player" parent="." unique_id=1650471665 instance=ExtResource("3_rhsa1")]
 
-[sub_resource type="StyleBoxFlat" id="BtnNormal"]
-bg_color = Color(0.784, 0.647, 0.278, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[node name="Luces" type="Node" parent="." unique_id=758500943]
 
-[sub_resource type="StyleBoxFlat" id="BtnPressed"]
-bg_color = Color(0.55, 0.45, 0.18, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[node name="Luz_Techo" type="OmniLight3D" parent="Luces" unique_id=301366131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[sub_resource type="StyleBoxFlat" id="BtnHover"]
-bg_color = Color(0.87, 0.75, 0.42, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[node name="Luz_Techo2" type="OmniLight3D" parent="Luces" unique_id=942298136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, 0)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[sub_resource type="StyleBoxFlat" id="InfoPanelStyle"]
-bg_color = Color(0.039, 0.059, 0.176, 0.95)
-border_width_top = 3
-border_color = Color(0.784, 0.647, 0.278, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
+[node name="Luz_Techo3" type="OmniLight3D" parent="Luces" unique_id=72473583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 0)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[sub_resource type="StyleBoxFlat" id="BtnDisabled"]
-bg_color = Color(0.227, 0.227, 0.29, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[node name="Luz_Techo4" type="OmniLight3D" parent="Luces" unique_id=289303609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="LevelSelect" type="Node2D" unique_id=106473293]
-script = ExtResource("1_script")
+[node name="Luz_Techo5" type="OmniLight3D" parent="Luces" unique_id=422364199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="Background" type="TextureRect" parent="." unique_id=1935918219]
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("3_map")
-expand_mode = 1
-stretch_mode = 6
+[node name="Luz_Techo6" type="OmniLight3D" parent="Luces" unique_id=1593164453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, 6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="Paths" type="Node2D" parent="." unique_id=1027234801]
+[node name="Luz_Techo7" type="OmniLight3D" parent="Luces" unique_id=863323178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="LevelNodes" type="Node2D" parent="." unique_id=296671122]
+[node name="Luz_Techo8" type="OmniLight3D" parent="Luces" unique_id=1844057842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="LevelNode_mecanica" type="Control" parent="LevelNodes" unique_id=636291134]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 200.0
-offset_top = 395.0
-offset_right = 296.0
-offset_bottom = 491.0
-pivot_offset = Vector2(48, 48)
+[node name="Luz_Techo9" type="OmniLight3D" parent="Luces" unique_id=287394107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -6)
+light_color = Color(0.65344447, 0.7218613, 1, 1)
+light_bake_mode = 1
+omni_range = 15.0
 
-[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=543096518]
+[node name="Mesas" type="MultiMeshInstance3D" parent="." unique_id=1846601748]
+
+[node name="Mesa 1" parent="Mesas" unique_id=1453827989 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4.504346)
+
+[node name="Silla 1" parent="Mesas/Mesa 1" unique_id=1977054924 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.6105101, 0, 0, 0, 1.6105101, 0, 0, 0, 1.6105101, -1.5, 0.5, -0.004345894)
+
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 1" unique_id=1118504668]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.1272664, 0.4497558, 0.58279276)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 1/Area3D" unique_id=2033035605]
+shape = SubResource("BoxShape3D_uydyw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 1/Area3D" unique_id=1076811201]
 visible = false
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("GlowStyle")
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_mecanica" unique_id=524158650]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("Pin_mecanica")
+[node name="Mesa 2" parent="Mesas" unique_id=220733655 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4.504346)
 
-[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_mecanica/PinCircle" unique_id=1643244573]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
-text = "⚙"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Silla 2" parent="Mesas/Mesa 2" unique_id=1113377414 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.4641001, 0, 0, 0, 1.4641001, 0, 0, 0, 1.4641001, -1.25, 0.5, -0.004345894)
 
-[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1030641716]
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 2" unique_id=412625426]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -0.93346405, 0.38408637, 0.59025955)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 2/Area3D" unique_id=1612620311]
+shape = SubResource("BoxShape3D_uydyw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 2/Area3D" unique_id=1320498665]
 visible = false
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 22
-text = "🔒"
-horizontal_alignment = 1
-vertical_alignment = 1
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_mecanica" unique_id=1147100287]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 128.0
-offset_bottom = 122.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "F. Mecanica"
-horizontal_alignment = 1
+[node name="Mesa 3" parent="Mesas" unique_id=966933115 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1.5043461)
 
-[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_mecanica" unique_id=955886659]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("EmptyStyle")
-theme_override_styles/pressed = SubResource("EmptyStyle")
-theme_override_styles/hover = SubResource("EmptyStyle")
-theme_override_styles/disabled = SubResource("EmptyStyle")
-theme_override_styles/focus = SubResource("EmptyStyle")
+[node name="Silla 3" parent="Mesas/Mesa 3" unique_id=1013859380 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.3310001, 0, 0, 0, 1.3310001, 0, 0, 0, 1.3310001, -1.5, 0.5, -0.0043461323)
 
-[node name="LevelNode_sistemas" type="Control" parent="LevelNodes" unique_id=451771925]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 394.0
-offset_top = 187.0
-offset_right = 490.0
-offset_bottom = 283.0
-pivot_offset = Vector2(48, 48)
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 3" unique_id=894889810]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.0545692, 0.47876167, 0.4946761)
 
-[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=2042443686]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 3/Area3D" unique_id=1065442467]
+shape = SubResource("BoxShape3D_uydyw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 3/Area3D" unique_id=2100023037]
 visible = false
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("GlowStyle")
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_sistemas" unique_id=95447173]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("Pin_sistemas")
+[node name="Mesa 4" parent="Mesas" unique_id=209627507 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.5043461)
 
-[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_sistemas/PinCircle" unique_id=1433329271]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
-theme_override_font_sizes/font_size = 36
-text = "💻"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Silla 4" parent="Mesas/Mesa 4" unique_id=893897243 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -1.25, 0.5, -0.0043461323)
 
-[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=1505095877]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 22
-text = "🔒"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 4" unique_id=1385622499]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.0980792, 0.50213826, 0.5771799)
 
-[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_sistemas" unique_id=600421971]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 128.0
-offset_bottom = 122.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "F. Sistemas"
-horizontal_alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 4/Area3D" unique_id=276838291]
+shape = SubResource("BoxShape3D_uydyw")
 
-[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_sistemas" unique_id=2051944947]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("EmptyStyle")
-theme_override_styles/pressed = SubResource("EmptyStyle")
-theme_override_styles/hover = SubResource("EmptyStyle")
-theme_override_styles/disabled = SubResource("EmptyStyle")
-theme_override_styles/focus = SubResource("EmptyStyle")
-
-[node name="LevelNode_quimica" type="Control" parent="LevelNodes" unique_id=399731494]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 773.0
-offset_top = 230.0
-offset_right = 869.0
-offset_bottom = 326.0
-pivot_offset = Vector2(48, 48)
-
-[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=785723755]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 4/Area3D" unique_id=1040913529]
 visible = false
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("GlowStyle")
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_quimica" unique_id=119552162]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("Pin_quimica")
+[node name="Mesa 5" parent="Mesas" unique_id=416670039 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.4956539)
 
-[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_quimica/PinCircle" unique_id=922726218]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
-theme_override_font_sizes/font_size = 36
-text = "🧪"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Silla 5" parent="Mesas/Mesa 5" unique_id=676222307 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -1.5, 0.5, -0.0043461323)
 
-[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=287020261]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 22
-text = "🔒"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 5" unique_id=726399967]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.0936651, 0.45138943, 0.5704754)
 
-[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_quimica" unique_id=745100636]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 128.0
-offset_bottom = 122.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "F. Quimica"
-horizontal_alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 5/Area3D" unique_id=2055712934]
+shape = SubResource("BoxShape3D_uydyw")
 
-[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_quimica" unique_id=599294814]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("EmptyStyle")
-theme_override_styles/pressed = SubResource("EmptyStyle")
-theme_override_styles/hover = SubResource("EmptyStyle")
-theme_override_styles/disabled = SubResource("EmptyStyle")
-theme_override_styles/focus = SubResource("EmptyStyle")
-
-[node name="LevelNode_comedor" type="Control" parent="LevelNodes" unique_id=1351296228]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 695.0
-offset_top = 392.0
-offset_right = 791.0
-offset_bottom = 488.0
-pivot_offset = Vector2(48, 48)
-
-[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1175396963]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 5/Area3D" unique_id=374931901]
 visible = false
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("GlowStyle")
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_comedor" unique_id=1916073128]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("Pin_comedor")
+[node name="Mesa 6" parent="Mesas" unique_id=623996863 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.4956539)
 
-[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_comedor/PinCircle" unique_id=1904542985]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
-theme_override_font_sizes/font_size = 36
-text = "🍽"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Silla 6" parent="Mesas/Mesa 6" unique_id=66948167 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.25, 0.5, -0.0043461323)
 
-[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=1083481775]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 22
-text = "🔒"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 6" unique_id=1279996127]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.1063299, 0.47200835, 0.55245215)
 
-[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_comedor" unique_id=322403864]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 128.0
-offset_bottom = 122.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "Comedor EPN"
-horizontal_alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 6/Area3D" unique_id=971306738]
+shape = SubResource("BoxShape3D_uydyw")
 
-[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_comedor" unique_id=1156076941]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("EmptyStyle")
-theme_override_styles/pressed = SubResource("EmptyStyle")
-theme_override_styles/hover = SubResource("EmptyStyle")
-theme_override_styles/disabled = SubResource("EmptyStyle")
-theme_override_styles/focus = SubResource("EmptyStyle")
-
-[node name="LevelNode_agroindustria" type="Control" parent="LevelNodes" unique_id=744117583]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 980.0
-offset_top = 65.0
-offset_right = 1076.0
-offset_bottom = 161.0
-pivot_offset = Vector2(48, 48)
-
-[node name="GlowRing" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=2107117404]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 6/Area3D" unique_id=1915682008]
 visible = false
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 104.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("GlowStyle")
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PinCircle" type="Panel" parent="LevelNodes/LevelNode_agroindustria" unique_id=946623239]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("Pin_agroindustria")
+[node name="Mesa 7" parent="Mesas" unique_id=52915836 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4.497654)
 
-[node name="EmojiIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria/PinCircle" unique_id=337615642]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 0.85)
-theme_override_font_sizes/font_size = 36
-text = "🌾"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Silla 7" parent="Mesas/Mesa 7" unique_id=1669394913 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -1.5, 0.5, -0.0023460388)
 
-[node name="LockIcon" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=458909754]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 22
-text = "🔒"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 7" unique_id=59863078]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.1059437, 0.4763136, 0.55461884)
 
-[node name="NameLabel" type="Label" parent="LevelNodes/LevelNode_agroindustria" unique_id=944327505]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 128.0
-offset_bottom = 122.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "F. Agroindustria"
-horizontal_alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 7/Area3D" unique_id=1633727515]
+shape = SubResource("BoxShape3D_uydyw")
 
-[node name="ClickArea" type="Button" parent="LevelNodes/LevelNode_agroindustria" unique_id=1334227105]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("EmptyStyle")
-theme_override_styles/pressed = SubResource("EmptyStyle")
-theme_override_styles/hover = SubResource("EmptyStyle")
-theme_override_styles/disabled = SubResource("EmptyStyle")
-theme_override_styles/focus = SubResource("EmptyStyle")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 7/Area3D" unique_id=568843617]
+visible = false
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="PlayerMarker" type="Node2D" parent="." unique_id=919458608]
-position = Vector2(200, 680)
+[node name="Mesa 8" parent="Mesas" unique_id=1259357102 instance=ExtResource("4_pp72x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4.497654)
 
-[node name="Shadow" type="Polygon2D" parent="PlayerMarker" unique_id=561196644]
-color = Color(0, 0, 0, 0.38)
-polygon = PackedVector2Array(18, 0, 17.119, 1.545, 14.562, 2.939, 10.58, 4.045, 5.562, 4.755, 0, 5, -5.562, 4.755, -10.58, 4.045, -14.562, 2.939, -17.119, 1.545, -18, 0, -17.119, -1.545, -14.562, -2.939, -10.58, -4.045, -5.562, -4.755, 0, -5, 5.562, -4.755, 10.58, -4.045, 14.562, -2.939, 17.119, -1.545)
+[node name="Silla 8" parent="Mesas/Mesa 8" unique_id=628635410 instance=ExtResource("5_7eg28")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.25, 0.5, -0.0023460388)
 
-[node name="OwlSprite" type="Sprite2D" parent="PlayerMarker" unique_id=1388314796]
-position = Vector2(0, -38)
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("2_owl")
+[node name="Area3D" type="StaticBody3D" parent="Mesas/Mesa 8" unique_id=2001399937]
+transform = Transform3D(3.5810213, 0, 0, 0, 0.88600206, 0, 0, 0, 0.7499561, -1.070652, 0.48854244, 0.580251)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1312410830]
-layer = 10
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesas/Mesa 8/Area3D" unique_id=1665374461]
+shape = SubResource("BoxShape3D_uydyw")
 
-[node name="TitleBar" type="Panel" parent="UI" unique_id=238185554]
-offset_right = 1280.0
-offset_bottom = 62.0
-theme_override_styles/panel = SubResource("TitleBarStyle")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesas/Mesa 8/Area3D" unique_id=422407318]
+visible = false
+mesh = SubResource("BoxMesh_uixqs")
 
-[node name="TitleLabel" type="Label" parent="UI/TitleBar" unique_id=1596853568]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 62.0
-theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.706)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 24
-text = "ECOBUHOS  |  CAMPUS EPN"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Tachos" type="Node" parent="." unique_id=979866650]
 
-[node name="RankBtn" type="Button" parent="UI/TitleBar" unique_id=1616944350]
-layout_mode = 0
-offset_left = 940.0
-offset_top = 12.0
-offset_right = 1100.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "🏆 RANKING EPN"
+[node name="Organico" parent="Tachos" unique_id=1566089314 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.017, -9)
 
-[node name="QuitBtn" type="Button" parent="UI/TitleBar" unique_id=2040491807]
-layout_mode = 0
-offset_left = 1120.0
-offset_top = 12.0
-offset_right = 1260.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "❌ SALIR"
+[node name="Plastico" parent="Tachos" unique_id=1441129257 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.017, -9)
+accepts_type = "plastic"
 
-[node name="ResetProgressBtn" type="Button" parent="UI/TitleBar" unique_id=2110000001]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 12.0
-offset_right = 230.0
-offset_bottom = 50.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = "♻ REINICIAR PROGRESO"
+[node name="Glass" parent="Tachos" unique_id=456135150 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017, -9)
+accepts_type = "glass"
 
-[node name="InfoPanel" type="Panel" parent="UI" unique_id=450693264]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -154.0
-offset_right = 280.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("InfoPanelStyle")
+[node name="Metal" parent="Tachos" unique_id=1942984308 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -9)
+accepts_type = "metal"
 
-[node name="LvNameLabel" type="Label" parent="UI/InfoPanel" unique_id=427521722]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 560.0
-offset_bottom = 46.0
-theme_override_colors/font_color = Color(0.784, 0.647, 0.278, 1)
-theme_override_font_sizes/font_size = 22
-text = "1.  Facultad de Mecanica"
-horizontal_alignment = 1
+[node name="Electronic" parent="Tachos" unique_id=49820617 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.051, -9)
+accepts_type = "electronic"
 
-[node name="LvDescLabel" type="Label" parent="UI/InfoPanel" unique_id=1812643216]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 50.0
-offset_right = 550.0
-offset_bottom = 95.0
-theme_override_colors/font_color = Color(0.8, 0.867, 0.941, 1)
-theme_override_font_sizes/font_size = 13
-text = "Domina el mundo de engranajes, maquinas e ingenieria industrial de la EPN."
-horizontal_alignment = 1
+[node name="Paper" parent="Tachos" unique_id=521223658 instance=ExtResource("6_v7iwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56, -0.051, -9)
+accepts_type = "paper"
 
-[node name="EnterBtn" type="Button" parent="UI/InfoPanel" unique_id=776360435]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 100.0
-offset_right = 390.0
-offset_bottom = 146.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.067, 0.067, 0.067, 1)
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("BtnNormal")
-theme_override_styles/pressed = SubResource("BtnPressed")
-theme_override_styles/hover = SubResource("BtnHover")
-theme_override_styles/disabled = SubResource("BtnDisabled")
-theme_override_styles/focus = SubResource("EmptyStyle")
-text = ">> ENTRAR"
+[node name="Residuos" type="Node" parent="." unique_id=1266906171]
 
-[node name="HintLabel" type="Label" parent="UI" unique_id=969186681]
-offset_top = 700.0
-offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_colors/font_color = Color(0.549, 0.549, 0.647, 1)
-theme_override_font_sizes/font_size = 11
-text = "< > Navegar   |   Enter o Clic para entrar"
-horizontal_alignment = 1
+[node name="WasteItem" parent="Residuos" unique_id=583767682 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0005865, 0.28312975, -8.133911)
+waste_type = "electronic"
 
-[node name="FadeOverlay" type="ColorRect" parent="UI" unique_id=112790102]
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
+[node name="WasteItem2" parent="Residuos" unique_id=226203172 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.203937, 0.28312975, 7.673452)
 
-[node name="ResetProgressDialog" type="ConfirmationDialog" parent="UI" unique_id=2110000002]
-title = "Reiniciar progreso"
-dialog_text = "Esto borrará el nivel más alto desbloqueado y volverá a bloquear los niveles avanzados. ¿Continuar?"
+[node name="WasteItem3" parent="Residuos" unique_id=1523256029 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9641156, 1.1691499, 1.9341202)
+
+[node name="WasteItem4" parent="Residuos" unique_id=143260551 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.102036, 0.28312975, 7.531965)
+
+[node name="WasteItem5" parent="Residuos" unique_id=553673208 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.528285, 0.28312975, 4.5042787)
+
+[node name="WasteItem6" parent="Residuos" unique_id=653615135 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15926707, 0.28312975, 1.9186034)
+
+[node name="WasteItem7" parent="Residuos" unique_id=1553954442 instance=ExtResource("7_anenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.405598, 0.28312975, -3.1631188)
+
+[node name="HUD" parent="." unique_id=494020750 instance=ExtResource("8_hryoq")]
